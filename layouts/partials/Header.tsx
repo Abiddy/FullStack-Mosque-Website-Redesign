@@ -23,19 +23,15 @@ const Header = () => {
   };
 
   // logo source
-  const { logo } = config.site;
   const { title, content, enddate } = config.announcement;
   const { enable, label, link } = config.nav_button;
 
   return (
     <header className="header">
-      <nav className="navbar container">
-        {/* logo */}
-        <div className="order-0" style={{marginTop: -15}}>
-          <Logo src={logo} />
-        </div>
-
-        {/* navbar toggler */}
+      <nav className="navbar container pt-6">
+      <div className="order-0 flex-shrink-0 mx-auto">
+        <img src="/images/ict8.png" alt="Logo" className="h-24 w-auto" />
+      </div>
         <button
           id="show-button"
           className="order-2 flex cursor-pointer items-center md:hidden md:order-1"
@@ -80,7 +76,6 @@ const Header = () => {
                         <li className="nav-dropdown-item" key={`children-${i}`}>
                           <Link
                             href={child.url}
-                            // className="nav-dropdown-link block"
                           >
                             {child.name}
                           </Link>
@@ -117,12 +112,12 @@ const Header = () => {
           </ul>
         </div>
         {enable && (
-          <div className="d-flex order-1 ml-auto hidden min-w-[200px] items-center justify-end md:ml-0 md:flex md:order-2">
-            <Link className="btn btn-primary z-0 py-[14px]" href={link} rel="">
-              {label}
-            </Link>
-          </div>
-        )}
+  <div className="fixed bottom-4 right-4 z-50">
+    <Link className="btn btn-primary z-0 py-[14px]" href={link} rel="">
+      {label}
+    </Link>
+  </div>
+)}
       </nav>
       { showModal && moment(new Date()).isBefore(moment(enddate,"DD-MM-YYYY")) &&
         <Modal
@@ -136,3 +131,4 @@ const Header = () => {
 };
 
 export default Header;
+

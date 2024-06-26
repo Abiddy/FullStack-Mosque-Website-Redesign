@@ -1,11 +1,11 @@
 ---
 banner:
-  title: Sutton central mosque
+  title: Islamic Center of Torrance
   content: Welcome to our website
   images:
-      - "https://d3owavb6pntfxw.cloudfront.net/eyJidWNrZXQiOiJhcHBsZXRyZWUtaW1hZ2VzLXYxIiwia2V5IjoiQXBwbGUgVHJlZS9zdXR0b25Nb3NxdWUxLmpwZWcifQ=="
-      - "https://d3owavb6pntfxw.cloudfront.net/eyJidWNrZXQiOiJhcHBsZXRyZWUtaW1hZ2VzLXYxIiwia2V5IjoiQXBwbGUgVHJlZS9zbGlkZTEuanBnIn0="
-      - "https://d3owavb6pntfxw.cloudfront.net/eyJidWNrZXQiOiJhcHBsZXRyZWUtaW1hZ2VzLXYxIiwia2V5IjoiQXBwbGUgVHJlZS9zbGlkZTIuanBnIn0="
+      - "images/banner2.png"
+      - "images/banner1.png"
+      - "images/banner3.png"
   button:
     label: "Contact Us"
     link: "/contact"
@@ -62,24 +62,6 @@ services:
     id: "about"
     images:
       - "https://d3owavb6pntfxw.cloudfront.net/eyJidWNrZXQiOiJhcHBsZXRyZWUtaW1hZ2VzLXYxIiwia2V5IjoiQXBwbGUgVHJlZS9raXN3YS5qcGcifQ=="
-    button:
-      enable: true
-      label: Check it out
-      link: /contact
-  - title: "Donate"
-    content: "Sutton Central Mosque is organised and maintained by The Shah Jalal Islamic Foundation, a registered charity (1114714). 
-      <br/><br/>
-      Alhamdulillah we have been granted planning permission to extend and add an additional floor to the Sutton Central Mosque. We require approximately **£500,000** for this project and we kindly request our brothers and sisters to help us facilitate the necessary work by donating generously. It is only with the help and support of our community, that will allow us to ensure the Mosque can continue to provide and accommodate in years to come In Sha Allah. <br/><br/>
-
-      The charity is solely reliant on donations in order to meet its financial needs. <br/> Donations can be made directly into the Charity account:<br/><br/> 
-      <h6>The Shah Jalal Islamic Foundation<br/>
-      Sort Code: 20 - 24 - 00<br/>
-      **Account Number** : **70867799**</h6>
-      <br/>
-      All donations are gratefully received."
-    id: "donate"
-    images:
-      - "https://d3owavb6pntfxw.cloudfront.net/eyJidWNrZXQiOiJhcHBsZXRyZWUtaW1hZ2VzLXYxIiwia2V5IjoiQXBwbGUgVHJlZS9tYXNqaWQtcG9ndW5nLWRhbGFuZ2FuLVhqcHpfVTBQYWxZLXVuc3BsYXNoLmpwZyJ9"
     button:
       enable: true
       label: Check it out

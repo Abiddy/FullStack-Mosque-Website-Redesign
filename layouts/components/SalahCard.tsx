@@ -1,94 +1,93 @@
 import { markdownify } from "@lib/utils/textConverter";
 import moment from "moment";
+import SunriseSunset from "./SunriseSunset";
+import RandomVerse from "./AyahGenerator";
 
 const SalahCard = ({ salah, colors }: any) => {
+  const timings = salah?.data[0]?.attributes;
+
+  const formatTime = (time) => {
+    return moment(time, "HH:mm:ss.SSS").format("hh:mm A");
+  };
+
   return (
-    <div className="container">
-      {/* Card */}
-      <div className="text-center">
-        <h2>{markdownify("Today's Salat times", "", "")}</h2>
-        <h6>{markdownify(moment(salah?.data?.today.date).format("DD MMM YYYY"), "", "")}</h6>
-      </div>
-      <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-6">
-        {/* sunrise */}
-        <div
-          className="feature-card rounded-xl p-5 pb-8 text-center drop-shadow-xl"
-          style={{
-            backgroundColor: colors.default.theme_color.theme_light,
-          }}
-          key={`feature-sunrise`}
-        >
-          <div className="mt-4 text-black">
-            {markdownify("Sunrise", "h3", "h5")}
-            <p className="mt-3">{salah?.data?.today.sunrise}</p>
+    <div className="container mx-auto">
+      <RandomVerse/>
+      {/* Prayer Times */}
+      <div className="bg-white p-6 rounded-xl  " style={{ backgroundColor: '#F8F8F8' }}>
+        <div className="text-left mb-10">
+          <div className="flex justify-content">
+        <img src="/images/app.png" alt="Fajr" className="h-6 w-6 mr-3 mt-2" />
+        <div>
+          <h2 className="text-xl font-semibold">Islamic Center of Torrance</h2>
+          <p className="text-sm text-gray-500">Torrance, California</p>
           </div>
+          </div>        
         </div>
-        {/* fajr */}
-        <div
-          className="feature-card rounded-xl p-5 pb-8 text-center drop-shadow-xl"
-          style={{
-            backgroundColor: colors.default.theme_color.theme_light,
-          }}
-          key={`feature-fajr`}
-        >
-          <div className="mt-4 text-black">
-            {markdownify("Fajr", "h3", "h5")}
-            <p className="mt-3">{salah?.data?.today.fajr}</p>
+        <div className="flex flex-col gap-4">
+          {/* Fajr */}
+          <div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <img src="/images/dawn.png" alt="Fajr" className="h-6 w-6 mr-4" />
+                <p className="text-md font-semibold">Fajr</p>
+              </div>
+              <p className="text-md font-normal text-gray-600">{formatTime(timings?.Fajr)}</p>
+            </div>
+            <hr className="my-2 border-gray-200" />
           </div>
-        </div>
-        {/* dhuhr */}
-        <div
-          className="feature-card rounded-xl p-5 pb-8 text-center drop-shadow-xl"
-          style={{
-            backgroundColor: colors.default.theme_color.theme_light,
-          }}
-          key={`feature-dhuhr`}
-        >
-          <div className="mt-4 text-black">
-            {markdownify("Dhuhr", "h3", "h5")}
-            <p className="mt-3">{salah?.data?.today.dhuhr}</p>
+
+          {/* Dhuhr */}
+          <div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <img src="/images/clock.png" alt="Dhuhr" className="h-6 w-6 mr-4" />
+                <p className="text-md font-semibold">Dhuhr</p>
+              </div>
+              <p className="text-md font-normal text-gray-600">{formatTime(timings?.Dhuhr)}</p>
+            </div>
+            <hr className="my-2 border-gray-200" />
           </div>
-        </div>
-        {/* asr */}
-        <div
-          className="feature-card rounded-xl p-5 pb-8 text-center drop-shadow-xl"
-          style={{
-            backgroundColor: colors.default.theme_color.theme_light,
-          }}
-          key={`feature-asr`}
-        >
-          <div className="mt-4 text-black">
-            {markdownify("Asr", "h3", "h5")}
-            <p className="mt-3">{salah?.data?.today.asr}</p>
+
+          {/* Asr */}
+          <div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <img src="/images/afternoon.png" alt="Asr" className="h-6 w-6 mr-4" />
+                <p className="text-md font-semibold">Asr</p>
+              </div>
+              <p className="text-md font-normal text-gray-600">{formatTime(timings?.Asr)}</p>
+            </div>
+            <hr className="my-2 border-gray-200" />
           </div>
-        </div>
-        {/* magrib */}
-        <div
-          className="feature-card rounded-xl p-5 pb-8 text-center drop-shadow-xl"
-          style={{
-            backgroundColor: colors.default.theme_color.theme_light,
-          }}
-          key={`feature-magrib`}
-        >
-          <div className="mt-4 text-black">
-            {markdownify("Magrib", "h3", "h5")}
-            <p className="mt-3">{salah?.data?.today.magrib}</p>
+
+          {/* Maghrib */}
+          <div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <img src="/images/sunset.png" alt="Maghrib" className="h-6 w-6 mr-4" />
+                <p className="text-md font-semibold">Maghrib</p>
+              </div>
+              <p className="text-md font-normal text-gray-600">{formatTime(timings?.Maghrib)}</p>
+            </div>
+            <hr className="my-2 border-gray-200" />
           </div>
-        </div>
-        {/* isha */}
-        <div
-          className="feature-card rounded-xl p-5 pb-8 text-center drop-shadow-xl"
-          style={{
-            backgroundColor: colors.default.theme_color.theme_light,
-          }}
-          key={`feature-isha`}
-        >
-          <div className="mt-4 text-black">
-            {markdownify("Isha", "h3", "h5")}
-            <p className="mt-3">{salah?.data?.today.isha}</p>
+
+          {/* Isha */}
+          <div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <img src="/images/night.png" alt="Isha" className="h-6 w-6 mr-4" />
+                <p className="text-md font-semibold">Isha</p>
+              </div>
+              <p className="text-md font-normal text-gray-600">{formatTime(timings?.Isha)}</p>
+            </div>
           </div>
         </div>
       </div>
+      <br/>
+      <SunriseSunset />
+        <br/>
     </div>
   );
 };

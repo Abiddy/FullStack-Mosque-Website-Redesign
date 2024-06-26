@@ -44,7 +44,35 @@ const Footer = () => {
           </div>
         </div> */}
         {/* copyright */}
+        
         <div className="border-t border-border py-6">
+        <p className="mt-12 text-white">Follow Us</p>
+            <div className="flex justify-center gap-4 mt-3">
+              <a
+                href="https://www.facebook.com/groups/iitorrance/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center"
+              >
+                <img
+                  src="/images/facebook1.png"
+                  alt="Facebook Live"
+                  className="h-10 md:h-12 md:w-12"
+                />
+              </a>
+              <a
+                href="https://www.youtube.com/@iitorrance285"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center"
+              >
+                <img
+                  src="/images/youtube.png"
+                  alt="YouTube Channel"
+                  className="h-10 md:h-12 md:w-12"
+                />
+              </a>
+            </div>
           {markdownify(copyright, "p", "text-sm text-center")}
         </div>
       </div>

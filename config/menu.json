@@ -5,6 +5,10 @@
       "url": "/"
     },
     {
+      "name": "Announcements",
+      "url": "#announcements"
+    },
+    {
       "name": "About Us",
       "url": "#about"
     },
