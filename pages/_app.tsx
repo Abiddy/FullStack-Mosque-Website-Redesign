@@ -6,7 +6,7 @@ import TagManager from "react-gtm-module";
 import "styles/style.scss";
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config as fConfig } from '@fortawesome/fontawesome-svg-core'
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+// import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { GoogleAnalytics } from "nextjs-google-analytics";
 
 
@@ -42,15 +42,15 @@ const App = ({ Component, pageProps }: any) => {
 
   return (
     <>
-      <GoogleReCaptchaProvider
+      {/* <GoogleReCaptchaProvider
       reCaptchaKey="6LdiLBklAAAAAJMhA06pGM7SOnzDU9WLMCAgvOeK"
       scriptProps={{
         async: false,
         defer: false,
         appendTo: "head",
         nonce: undefined,
-      }}
-    >
+      }} */}
+    
         <Head>
           {/* google font css */}
           <link
@@ -71,7 +71,7 @@ const App = ({ Component, pageProps }: any) => {
         </Head>
         <GoogleAnalytics trackPageViews gaMeasurementId={config.params.ga_tag} />
         <Component {...pageProps} />
-      </GoogleReCaptchaProvider>
+      {/* </GoogleReCaptchaProvider> */}
       
     </>
   );

@@ -4,12 +4,21 @@ const Donate = () => {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText('iit@torrancemasjid.org').then(() => {
+    const textToCopy = 'iit@torrancemasjid.org';
+    const textArea = document.createElement('textarea');
+    textArea.value = textToCopy;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
       setCopied(true);
       setTimeout(() => {
         setCopied(false);
       }, 2000); // Hide the message after 2 seconds
-    });
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+    document.body.removeChild(textArea);
   };
 
   return (
@@ -29,9 +38,16 @@ const Donate = () => {
           </div>
         )}
 
-        <button className="w-full py-4 mb-2 bg-blue-100 hover:bg-blue-200 text-blue-500 rounded-lg transition-transform transform hover:scale-105">
-          Card
+        <button 
+          onClick={copyToClipboard}
+          className="w-full py-4 mb-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-transform transform hover:scale-105">
+        <img src="images/zelle.png" alt="zelle" className="mx-auto h-6" />
         </button>
+        {copied && (
+          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm py-1 px-2 rounded-lg shadow-lg">
+            iit@torrancemasjid.org copied!
+          </div>
+        )}
 
         <button className="w-full py-4 mb-2 bg-blue-100 hover:bg-blue-200 text-blue-500 rounded-lg transition-transform transform hover:scale-105">
           eCheck

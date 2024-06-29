@@ -1,134 +1,54 @@
-import Logo from "@components/Logo";
-import config from "@config/config.json";
-import menu from "@config/menu.json";
-import Modal from "@layouts/components/Modal";
-import moment from "moment";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import moment from "moment";
+import Modal from "@layouts/components/Modal";
+import config from "@config/config.json";
 
 const Header = () => {
-  //router
   const router = useRouter();
-
-  // distructuring the main menu from menu object
-  const { main } = menu;
-
-  // states declaration
-  const [navOpen, setNavOpen] = useState(false);
-  const [showModal, setShowModal] = React.useState(true);
+  const [showModal, setShowModal] = useState(true);
 
   const handleClick = (id: string | number) => {
     setShowModal(false);
   };
 
-  // logo source
   const { title, content, enddate } = config.announcement;
   const { enable, label, link } = config.nav_button;
 
   return (
-    <header className="header">
-      <nav className="navbar container pt-6">
-      <div className="order-0 flex-shrink-0 mx-auto">
-        <img src="/images/ict8.png" alt="Logo" className="h-24 w-auto" />
-      </div>
-        <button
-          id="show-button"
-          className="order-2 flex cursor-pointer items-center md:hidden md:order-1"
-          onClick={() => setNavOpen(!navOpen)}
-        >
-          {navOpen ? (
-            <svg className="h-6 fill-current" viewBox="0 0 20 20">
-              <title>Menu Open</title>
-              <polygon
-                points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-                transform="rotate(45 10 10)"
-              />
-            </svg>
-          ) : (
-            <svg className="h-6 fill-current" viewBox="0 0 20 20">
-              <title>Menu Close</title>
-              <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z" />
-            </svg>
-          )}
-        </button>
-
-        {/* Menu */}
-        <div
-          id="nav-menu"
-          className={`order-3 md:order-1 ${
-            navOpen ? "max-h-[1000px]" : "max-h-0"
-          }`}
-        >
-          <ul className="navbar-nav block w-full md:flex md:w-auto lg:space-x-2">
-            {main.map((menu:any, i:any) => (
-              <React.Fragment key={`menu-${i}`}>
-                {menu.hasChildren ? (
-                  <li className="nav-item nav-dropdown group relative">
-                    <span className="nav-link inline-flex items-center">
-                      {menu.name}
-                      <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                      </svg>
-                    </span>
-                    <ul className="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
-                      {menu.children.map((child:any, i:any) => (
-                        <li className="nav-dropdown-item" key={`children-${i}`}>
-                          <Link
-                            href={child.url}
-                          >
-                            {child.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ) : (
-                  <li className="nav-item">
-                    <Link
-                      href={menu.url}
-                      onClick={() => setNavOpen(false)}
-                      className={`nav-link block ${
-                        router.asPath === menu.url ? "nav-link-active" : ""
-                      }`}
-                    >
-                      {menu.name}
-                    </Link>
-                  </li>
-                )}
-              </React.Fragment>
-            ))}
-            {enable && (
-              <li className="md:hidden">
-                <Link
-                  className="btn btn-primary z-0 py-[14px]"
-                  href={link}
-                  rel=""
-                >
-                  {label}
-                </Link>
-              </li>
-            )}
-          </ul>
-        </div>
+    <header className="">
+<nav className="navbar fixed top-0 w-full shadow-md p-7 flex items-center justify-between justify-center bg-white z-50">
+          
+          <a href="#salah">
+           <img src="/images/salah.png" alt="salah" className="h-7 w-7" />
+          </a>
+          <a href="#announcements">
+          <img src="/images/megaphone.png" alt="Megaphone" className="h-7 w-7" />
+          </a>
+          <a  href="#about">
+          <img src="/images/info2.png" alt="Info" className="h-6 w-6" />
+          </a>
+          <a href="#donate">
+          <img src="/images/heart2.png" alt="Heart" className="h-6 w-6" />
+          </a>
+          <a href="#contactUs">
+          <img src="/images/chat.png" alt="Chat" className="h-6 w-6" />
+          </a>
+       
         {enable && (
-  <div className="fixed bottom-4 right-4 z-50">
-    <Link className="btn btn-primary z-0 py-[14px]" href={link} rel="">
-      {label}
-    </Link>
-  </div>
-)}
+          <div className="fixed bottom-4 right-4 z-50">
+            <Link className="btn btn-primary z-0 py-[20px]" href={link} rel="">
+              {label}
+            </Link>
+          </div>
+        )}
       </nav>
-      { showModal && moment(new Date()).isBefore(moment(enddate,"DD-MM-YYYY")) &&
-        <Modal
-          title={title}
-          body={content}
-          handleClick={handleClick}
-        />
-      }   
+      {showModal && moment(new Date()).isBefore(moment(enddate, "DD-MM-YYYY")) && (
+        <Modal title={title} body={content} handleClick={handleClick} />
+      )}
     </header>
   );
 };
 
 export default Header;
-

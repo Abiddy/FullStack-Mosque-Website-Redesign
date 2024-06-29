@@ -24,22 +24,19 @@ async function getAnnouncements() {
   return res.json();
 }
 
+async function getQuestions() {
+  const res = await fetch("/api/questions");
+  return res.json();
+}
+
 const Home = ({ frontmatter }: any) => {
-  const { banner, feature, services, salat, contact_us } = frontmatter;
+  const { feature, salat, contact_us } = frontmatter;
   const { title, salah_type } = config.site;
   const { colors } = theme;
   const [salah, setSalah] = useState<any>();
   const [announcements, setAnnouncements] = useState<any>();
-  const [copied, setCopied] = useState(false);
+  const [questions, setQuestions] = useState<any>();
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText('iit@torrancemasjid.org').then(() => {
-      setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000); // Hide the message after 2 seconds
-    });
-  };
 
   useEffect(() => {
     async function _getSalah() {
@@ -57,13 +54,24 @@ const Home = ({ frontmatter }: any) => {
     _getAnnouncements();
   }, []);
 
+  useEffect(() => {
+    async function _getQuestions() {
+      const data = await getQuestions();
+      setQuestions(data);
+    }
+    _getQuestions();
+  }, []);
+
   console.log({salah})
   return (
     <Base title={title}>
 
       {/* salah times 2 */}
       {salah_type === 2 && (
-        <section className="section">
+        <section 
+        className="section" 
+        // id="salah"
+        >
           <SalahCard salah={salah} colors={colors} />
         </section>
       )}
@@ -108,30 +116,22 @@ const Home = ({ frontmatter }: any) => {
         </div>
       </section>
 
-      {/* services */}
-
-
-      {/* {services.map((service: any, index: any) => {
-        const isOdd = index % 2 > 0;
-        return (
-          <section
-            key={`service-${index}`}
-            className={`section ${isOdd && "bg-theme-light"}`}
-            id={service.id}
-          >
-            <OverviewCard service={service} isOdd={isOdd} />
-          </section>
-        );
-      })} */}
-
       <section className="section" id="donate">
       
         <div className="container mx-auto text-center">
        
           <h2 className="text-4xl font-light  mb-8">Donate</h2>
-          <p className="text-lg leading-relaxed mb-4">
+          {/* <p className="text-lg leading-relaxed mb-4">
             Islamic Center of Torrance is solely reliant on donations in order to meet its financial needs.  All donations are gratefully received.
+          </p> */}
+          <div className="text-center pl-4 pr-4 my-8">
+          <p className="text-md italic font-light text-gray-500">
+            {"The example of those who spend their wealth in the way of Allah is like a seed [of grain] that sprouts seven ears; in every ear are a hundred grains. And Allah multiplies [His reward] for whom He wills. Allah is all-Encompassing and Knowing."}
           </p>
+            <p className="text-lg font-medium text-gray-800 mt-2">
+              Surah Al-Baqarah (2:261)
+            </p>
+          </div>
           <br/>
           <Donate/>
           <p className="text-lg leading-relaxed mb-8">
@@ -149,7 +149,7 @@ const Home = ({ frontmatter }: any) => {
 
       {/* Contact Us */}
       <section className="section bg-theme-light" id="contactUs">
-        <ContactUs contact_us={contact_us} theme={theme} />
+        <ContactUs questions={questions} theme={theme} />
       </section>
     </Base>
   );

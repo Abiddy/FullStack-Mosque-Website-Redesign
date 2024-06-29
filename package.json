@@ -15,6 +15,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-native-clipboard/clipboard": "^1.14.1",
     "@types/axios": "^0.14.0",
     "@types/markdown-it": "^12.2.3",
     "@types/marked": "^4.0.8",
@@ -37,6 +38,7 @@
     "react-icons": "^4.7.1",
     "react-lite-youtube-embed": "^2.3.52",
     "react-markdown": "^8.0.6",
+    "react-toastify": "^10.0.5",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "swiper": "^8.4.5"

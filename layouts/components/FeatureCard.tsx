@@ -26,7 +26,7 @@ const FeatureCard = ({ feature, theme }: any) => {
   return (
     <div className="container">
       <div className="text-center">
-        <h2>{markdownify(feature.title, "", "")}</h2>
+      <h2 className=" font-light  mb-8">Our Activites</h2>
       </div>
       <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
         {feature.features.map((item: any, i: any) => (

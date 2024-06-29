@@ -1,6 +1,6 @@
 
 
-const Announcements = ({ announcements }) => {
+const Announcements = ( announcements: any) => {
   // Check if announcements and announcements.data exist
   if (!announcements || !announcements.data) {
     return <div>Loading...</div>;
@@ -12,12 +12,18 @@ const Announcements = ({ announcements }) => {
     <div className="container mx-auto py-5 px-6">
       <div className="row text-center">
         <div className="mx-auto lg:col-10">
-          <div className="flex ml-2 mb-10 text-white">
-          <h3 className="text-2xl font-normal mr-2 ">{announcements.data.length} </h3>
-            <h3 className="text-2xl font-normal "> Announcements</h3>
+          <div className="flex justify-center">
+            <img src="/images/megaphone.png" alt="Megaphone" style={{ height: '4rem', width: 'auto' }}/>
+          </div>
+          <div className="flex justify-center mt-5 ml-2 mb-10 text-white relative">
+            <h3 className="text-2xl font-normal relative">Announcements
+              <span className="absolute -top-2 -right-5 bg-red-500 text-white rounded-full px-2 py-1 text-xs font-bold">
+                {announcements.data.length}
+              </span>
+            </h3>
           </div>
           <div className="flex flex-col items-center">
-            {announcements.data.map((announcement) => (
+            {announcements.data.map((announcement: any) => (
               <div
                 key={announcement.id}
                 className="p-6 rounded-lg shadow-md  text-left w-full max-w-lg mb-6"

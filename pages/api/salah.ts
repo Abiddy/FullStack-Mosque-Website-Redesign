@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   try {
     const response = await axios.get('http://localhost:1337/api/salat-times');
     const prayerTimes = response.data;

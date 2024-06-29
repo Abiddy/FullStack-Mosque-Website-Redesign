@@ -6,20 +6,25 @@ import RandomVerse from "./AyahGenerator";
 const SalahCard = ({ salah, colors }: any) => {
   const timings = salah?.data[0]?.attributes;
 
-  const formatTime = (time) => {
+  const formatTime = (time: any) => {
     return moment(time, "HH:mm:ss.SSS").format("hh:mm A");
   };
 
   return (
     <div className="container mx-auto">
-      <RandomVerse/>
+
+      <div className="mt-20"></div>
+
+  
+      <RandomVerse />
+      <div id="salah"></div>
       {/* Prayer Times */}
-      <div className="bg-white p-6 rounded-xl  " style={{ backgroundColor: '#F8F8F8' }}>
+      <div className="bg-white p-6 rounded-xl" style={{ backgroundColor: '#F8F8F8' }}>
         <div className="text-left mb-10">
           <div className="flex justify-content">
         <img src="/images/app.png" alt="Fajr" className="h-6 w-6 mr-3 mt-2" />
         <div>
-          <h2 className="text-xl font-semibold">Islamic Center of Torrance</h2>
+          <h2 className="text-xl font-semibold">ICT Prayer Times</h2>
           <p className="text-sm text-gray-500">Torrance, California</p>
           </div>
           </div>        

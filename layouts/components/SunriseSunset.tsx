@@ -28,7 +28,7 @@ const SunriseSunset = () => {
     fetchSunriseSunset();
   }, []);
 
-  const formatTime = (time) => {
+  const formatTime = (time: any) => {
     return moment(time, "HH:mm:ss.SSS").format("hh:mm A");
   };
 
