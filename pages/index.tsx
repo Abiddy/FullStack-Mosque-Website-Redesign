@@ -62,7 +62,7 @@ const Home = ({ frontmatter }: any) => {
     _getQuestions();
   }, []);
 
-  console.log({salah})
+  console.log({announcements})
   return (
     <Base title={title}>
 

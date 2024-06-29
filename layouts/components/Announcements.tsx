@@ -1,6 +1,6 @@
 
 
-const Announcements = ( announcements: any) => {
+const Announcements = ( {announcements}: any) => {
   // Check if announcements and announcements.data exist
   if (!announcements || !announcements.data) {
     return <div>Loading...</div>;
