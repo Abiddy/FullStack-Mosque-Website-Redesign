@@ -8,24 +8,27 @@ const ContactUs = ({ questions }: any) => {
   const [responseMessage, setResponseMessage] = useState<string>('');
   const [openQuestionId, setOpenQuestionId] = useState<number | null>(null);
 
+  import { toast } from 'react-toastify';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     const data = {
       question: question,
       topic: name,
       publishedAt: null,
     };
-
+  
     try {
-      const response = await fetch('http://192.168.1.26:1337/api/questions', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/questions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
         },
         body: JSON.stringify({ data }),
       });
-
+  
       if (response.ok) {
         const result = await response.json();
         setResponseMessage('Your question has been submitted successfully.');
@@ -42,6 +45,7 @@ const ContactUs = ({ questions }: any) => {
       toast.error('An error occurred. Please try again.');
     }
   };
+  
 
   const toggleQuestion = (id: number) => {
     setOpenQuestionId(openQuestionId === id ? null : id);
