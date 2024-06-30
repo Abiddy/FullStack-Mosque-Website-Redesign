@@ -42,14 +42,6 @@ const App = ({ Component, pageProps }: any) => {
 
   return (
     <>
-      {/* <GoogleReCaptchaProvider
-      reCaptchaKey="6LdiLBklAAAAAJMhA06pGM7SOnzDU9WLMCAgvOeK"
-      scriptProps={{
-        async: false,
-        defer: false,
-        appendTo: "head",
-        nonce: undefined,
-      }} */}
     
         <Head>
           {/* google font css */}
@@ -71,7 +63,6 @@ const App = ({ Component, pageProps }: any) => {
         </Head>
         <GoogleAnalytics trackPageViews gaMeasurementId={config.params.ga_tag} />
         <Component {...pageProps} />
-      {/* </GoogleReCaptchaProvider> */}
       
     </>
   );

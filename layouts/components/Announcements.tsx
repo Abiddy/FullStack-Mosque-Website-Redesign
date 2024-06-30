@@ -6,8 +6,6 @@ const Announcements = ( {announcements}: any) => {
     return <div>Loading...</div>;
   }
 
-  console.log({announcements})
-
   return (
     <div className="container mx-auto py-5 px-6">
       <div className="row text-center">

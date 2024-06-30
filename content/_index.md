@@ -16,15 +16,14 @@ feature:
   features:
   - name: "Quran Learning"
     icon: "faBookQuran"
-    content: "Sutton Mosque also provides a Madarasah to teach young children about Islam and how to read Quran"
-    readmore: "Sutton Mosque also provides a Madarasah to teach young children about Islam and how to read Quran. 
+    content: "Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages"
+    readmore: "Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages
     <br/>
-    Sutton Mosque also provides a Madarasah to teach young children about Islam and how to read Quran. Sutton Mosque also provides a Madarasah to teach young children about Islam and how to read Quran. 
-    <br/><br/>
-    Sutton Mosque also provides a Madarasah to teach young children about Islam and how to read Quran. Sutton Mosque also provides a Madarasah to teach young children about Islam and how to read Quran. Sutton Mosque also provides a Madarasah to teach young children about Islam and how to read Quran. "
-  - name: "Mosque Development"
+    Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages.   Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages.   Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages.   Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages.   Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages. "
+
+  - name: "Youth Activities"
     icon: "faMosque"
-    content: "Sutton Mosque is working hard to raise money to rebuild the mosque"
+    content: "ICT has a strong community of young brothers"
     readmore: "Sutton Mosque is working hard to raise money to rebuild the mosque. We want to raise £500000 to complete the building work. Sutton Mosque is working hard to raise money to rebuild the mosque. We want to raise £500000 to complete the building work. Sutton Mosque is working hard to raise money to rebuild the mosque. We want to raise <b>£500000</b> to complete the building work. "
   - name: "Funeral Service"
     icon: "faStarAndCrescent"

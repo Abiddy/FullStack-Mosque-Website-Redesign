@@ -16,7 +16,7 @@ const SalahCard = ({ salah, colors }: any) => {
       <div className="mt-20"></div>
 
   
-      <RandomVerse />
+      {/* <RandomVerse /> */}
       <div id="salah"></div>
       {/* Prayer Times */}
       <div className="bg-white p-6 rounded-xl" style={{ backgroundColor: '#F8F8F8' }}>
