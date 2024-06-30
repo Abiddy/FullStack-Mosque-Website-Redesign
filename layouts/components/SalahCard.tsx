@@ -6,6 +6,8 @@ import RandomVerse from "./AyahGenerator";
 const SalahCard = ({ salah, colors }: any) => {
   const timings = salah?.data[0]?.attributes;
 
+  console.log({salah})
+
   const formatTime = (time: any) => {
     return moment(time, "HH:mm:ss.SSS").format("hh:mm A");
   };
@@ -37,7 +39,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <img src="/images/dawn.png" alt="Fajr" className="h-6 w-6 mr-4" />
                 <p className="text-md font-semibold">Fajr</p>
               </div>
-              <p className="text-md font-normal text-gray-600">{formatTime(timings?.Fajr)}</p>
+              <p className="text-md font-normal text-gray-600">{formatTime(timings?.fajr)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
           </div>
@@ -49,7 +51,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <img src="/images/clock.png" alt="Dhuhr" className="h-6 w-6 mr-4" />
                 <p className="text-md font-semibold">Dhuhr</p>
               </div>
-              <p className="text-md font-normal text-gray-600">{formatTime(timings?.Dhuhr)}</p>
+              <p className="text-md font-normal text-gray-600">{formatTime(timings?.dhuhr)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
           </div>
@@ -61,7 +63,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <img src="/images/afternoon.png" alt="Asr" className="h-6 w-6 mr-4" />
                 <p className="text-md font-semibold">Asr</p>
               </div>
-              <p className="text-md font-normal text-gray-600">{formatTime(timings?.Asr)}</p>
+              <p className="text-md font-normal text-gray-600">{formatTime(timings?.asr)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
           </div>
@@ -73,7 +75,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <img src="/images/sunset.png" alt="Maghrib" className="h-6 w-6 mr-4" />
                 <p className="text-md font-semibold">Maghrib</p>
               </div>
-              <p className="text-md font-normal text-gray-600">{formatTime(timings?.Maghrib)}</p>
+              <p className="text-md font-normal text-gray-600">{formatTime(timings?.maghrib)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
           </div>
@@ -85,7 +87,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <img src="/images/night.png" alt="Isha" className="h-6 w-6 mr-4" />
                 <p className="text-md font-semibold">Isha</p>
               </div>
-              <p className="text-md font-normal text-gray-600">{formatTime(timings?.Isha)}</p>
+              <p className="text-md font-normal text-gray-600">{formatTime(timings?.isha)}</p>
             </div>
           </div>
         </div>
