@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   try {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/questions`, {
       headers: {

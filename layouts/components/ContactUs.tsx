@@ -8,8 +8,6 @@ const ContactUs = ({ questions }: any) => {
   const [responseMessage, setResponseMessage] = useState<string>('');
   const [openQuestionId, setOpenQuestionId] = useState<number | null>(null);
 
-  import { toast } from 'react-toastify';
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   

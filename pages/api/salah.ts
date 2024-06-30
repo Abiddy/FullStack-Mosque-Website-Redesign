@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default async function handler(req: any, res: any) {
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/announcements`, {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/prayer-times`, {
       headers: {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`
       }
