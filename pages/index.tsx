@@ -62,7 +62,6 @@ const Home = ({ frontmatter }: any) => {
     _getQuestions();
   }, []);
 
-  console.log({announcements})
   return (
     <Base title={title}>
 

@@ -6,8 +6,6 @@ import RandomVerse from "./AyahGenerator";
 const SalahCard = ({ salah, colors }: any) => {
   const timings = salah?.data[0]?.attributes;
 
-  console.log({salah})
-
   const formatTime = (time: any) => {
     return moment(time, "HH:mm:ss.SSS").format("hh:mm A");
   };
