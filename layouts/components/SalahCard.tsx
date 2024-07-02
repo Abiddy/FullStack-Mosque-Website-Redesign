@@ -1,7 +1,7 @@
 import { markdownify } from "@lib/utils/textConverter";
 import moment from "moment";
 import SunriseSunset from "./SunriseSunset";
-import RandomVerse from "./AyahGenerator";
+import Ayahs from "@layouts/components/ayahCarousal/Ayahs";
 
 const SalahCard = ({ salah, colors }: any) => {
   const timings = salah?.data[0]?.attributes;
@@ -13,7 +13,7 @@ const SalahCard = ({ salah, colors }: any) => {
   return (
     <div className="container mx-auto">
 
-      <div className="mt-20"></div>
+      <div className="mt-16"></div>
 
   
       {/* <RandomVerse /> */}
@@ -93,6 +93,8 @@ const SalahCard = ({ salah, colors }: any) => {
       <br/>
       <SunriseSunset />
         <br/>
+
+        <Ayahs/>
     </div>
   );
 };

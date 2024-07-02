@@ -1,17 +1,13 @@
-import Social from "@components/Social";
 import config from "@config/config.json";
 import menu from "@config/menu.json";
-import social from "@config/social.json";
 import { markdownify } from "@lib/utils/textConverter";
-import Image from "next/image";
-import Link from "next/link";
 
 const Footer = () => {
   const { copyright, footer_content } = config.params;
   const { footer } = menu;
   return (
-    <footer className="section pb-0 bg-theme-light">
-      <div className="container">
+    <footer className=" bg-theme-dark">
+      <div className="container mt-10 pb-10">
         {/* footer menu */}
         {/* <div className="row">
           {footer.map((col) => {
@@ -45,9 +41,11 @@ const Footer = () => {
         </div> */}
         {/* copyright */}
         
-        <div className="border-t border-border py-6">
-        <p className="mt-12 text-white">Follow Us</p>
-            <div className="flex justify-center gap-4 mt-3">
+        <div>
+          <div className="flex justify-center">
+        <p className="text-black">Follow Us</p>
+        </div>
+            <div className="flex justify-center gap-4 mt-3 mb-8">
               <a
                 href="https://www.facebook.com/groups/iitorrance/"
                 target="_blank"
@@ -55,9 +53,9 @@ const Footer = () => {
                 className="flex items-center"
               >
                 <img
-                  src="/images/facebook1.png"
+                  src="/images/facebook.png"
                   alt="Facebook Live"
-                  className="h-10 md:h-12 md:w-12"
+                  className="h-8 md:h-12 md:w-12"
                 />
               </a>
               <a
@@ -73,7 +71,8 @@ const Footer = () => {
                 />
               </a>
             </div>
-          {markdownify(copyright, "p", "text-sm text-center")}
+          <p className="text-sm text-center"> © 2024, Islamic Center of Torrance, 18103 Prairie Ave, Torrance, CA 90504 | (310) 956-8006 </p>
+          <p className="text-center text-gray-900 mt-5 mb-10">Made with حُب in Gardena</p>
         </div>
       </div>
     </footer>

@@ -18,17 +18,25 @@ feature:
     icon: "faBookQuran"
     content: "Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages"
     readmore: "Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages
-    <br/>
-    Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages.   Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages.   Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages.   Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages.   Islamic Center of Torrance provides regular Quran recitation and learning classes for people of all ages. "
+    </br>
+    </br>
+The Islamic Center of Torrance offers a comprehensive range of Quran recitation and learning classes designed for people of all ages. Our programs include in-depth tafseer and seerah (biography of the Prophet Muhammad) sessions held every Tuesday and Thursday. These classes aim to deepen your understanding of the Quran and the life of the Prophet, fostering spiritual growth and knowledge within our community. "
 
   - name: "Youth Activities"
     icon: "faMosque"
     content: "ICT has a strong community of young brothers"
-    readmore: "Sutton Mosque is working hard to raise money to rebuild the mosque. We want to raise £500000 to complete the building work. Sutton Mosque is working hard to raise money to rebuild the mosque. We want to raise £500000 to complete the building work. Sutton Mosque is working hard to raise money to rebuild the mosque. We want to raise <b>£500000</b> to complete the building work. "
-  - name: "Funeral Service"
-    icon: "faStarAndCrescent"
-    content: "Sutton Mosque provides Funeral Services for Muslims in Sutton and the surrounding area"
-    readmore: "Sutton Mosque provides Funeral Services for Muslims in Sutton and the surrounding area"
+    readmore: "At the Islamic Center of Torrance (ICT), we have a thriving youth community with weekly events all around the South Bay. These are organized by Young Muslim Brothers and Young Muslim Sisters, offering plenty of chances for socializing, learning, and growing spiritually.
+</br>
+</br>
+Our youth programs work closely with ICT to create a safe and welcoming environment. We aim to nurture and develop future leaders through these activities.
+</br>
+</br>
+
+Want to know more about Young Muslim Brothers and Young Muslim Sisters? Check out their Instagram page: @ym.losangeles.brothers. "
+  # - name: "Funeral Service"
+  #   icon: "faStarAndCrescent"
+  #   content: "Sutton Mosque provides Funeral Services for Muslims in Sutton and the surrounding area"
+  #   readmore: "Sutton Mosque provides Funeral Services for Muslims in Sutton and the surrounding area"
   
 # salat
 salat: 
