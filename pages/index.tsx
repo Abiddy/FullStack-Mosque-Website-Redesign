@@ -120,9 +120,6 @@ const Home = ({ frontmatter }: any) => {
         <div className="container mx-auto text-center">
        
           <h2 className="text-4xl font-light  mb-8">Donate</h2>
-          {/* <p className="text-lg leading-relaxed mb-4">
-            Islamic Center of Torrance is solely reliant on donations in order to meet its financial needs.  All donations are gratefully received.
-          </p> */}
           <div className="text-center pl-4 pr-4 my-8">
           <p className="text-md italic font-light text-gray-500">
             {"The example of those who spend their wealth in the way of Allah is like a seed [of grain] that sprouts seven ears; in every ear are a hundred grains. And Allah multiplies [His reward] for whom He wills. Allah is all-Encompassing and Knowing."}

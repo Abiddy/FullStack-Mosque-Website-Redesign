@@ -60,11 +60,6 @@ const Ayahs = () => {
                     onClick={() => toggleExpand(index)}
                   >
                     {expandedCards[index] ? 'Show Less' : 'Show More'}
-                    {/* <img 
-                      src={expandedCards[index] ? "/images/down.png" : "/images/up.png"} 
-                      alt="Toggle" 
-                      style={{ height: '1.4rem', width: 'auto' }} 
-                    /> */}
                   </button>
                 </div>
               )}

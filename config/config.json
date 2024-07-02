@@ -1,12 +1,12 @@
 {
   "site": {
-    "title": "Announcements",
+    "title": "ICT",
     "base_url": "/",
-    "favicon": "https://d3owavb6pntfxw.cloudfront.net/eyJidWNrZXQiOiJhcHBsZXRyZWUtaW1hZ2VzLXYxIiwia2V5IjoiQXBwbGUgVHJlZS9mYXZpY29uLmljbyJ9",
-    "logo": "https://d3owavb6pntfxw.cloudfront.net/eyJidWNrZXQiOiJhcHBsZXRyZWUtaW1hZ2VzLXYxIiwia2V5IjoiQXBwbGUgVHJlZS9zbS1sb2dvLTEucG5nIn0=",
+    "favicon": "images/frame1.png",
+    "logo": "images/frame1.png",
     "logo_width": "120",
     "logo_height": "48",
-    "logo_text": "Sutton Central Mosque",
+    "logo_text": "Islamic Center of Torrance",
     "salah_type": 2
   },
 
@@ -32,7 +32,7 @@
 
   "metadata": {
     "meta_author": "",
-    "meta_image": "",
+    "meta_image": "images/frame1.png",
     "meta_description": ""
   },
 

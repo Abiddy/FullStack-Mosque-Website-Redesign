@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from "moment";
 
-const SunriseSunset = () => {
+const SunriseSunset = ({friday}: any) => {
   const [times, setTimes] = useState({ sunrise: '', sunset: '' });
 
   useEffect(() => {
@@ -33,17 +33,23 @@ const SunriseSunset = () => {
   };
 
   return (
-<div className="flex justify-between items-center bg-white p-3 rounded-xl  mb-4 pl-14 pr-14"  style={{ backgroundColor: '#F8F8F8' }}>
+<div className="flex justify-between items-center bg-white p-3 rounded-xl mb-4 pl-10 pr-10"  style={{ backgroundColor: '#F8F8F8' }}>
   <div className="flex flex-col items-center">
     <img src="/images/horizon.png" alt="Sunrise" className="h-10 mb-2" />
     <p className="text-xs text-gray-500">Sunrise</p>
-    <p className="text-lg font-semibold">{formatTime(times?.sunrise)}</p>
+    <p className="text-sm font-semibold">{formatTime(times?.sunrise)}</p>
   </div>
-  <div className="h-16 w-px bg-gray-300 mx-8"></div> 
+  <div className="h-16 w-px bg-gray-300 mx-5"></div> 
+  <div className="flex flex-col items-center">
+    <img src="/images/mosque.png" alt="mosque" className="h-10 mb-2" />
+    <p className="text-xs text-gray-500">Friday Prayer</p>
+    <p className="text-sm font-semibold">{friday}</p>
+  </div>
+  <div className="h-16 w-px bg-gray-300 mx-5"></div> 
   <div className="flex flex-col items-center">
     <img src="/images/ocean.png" alt="Sunset" className="h-10 mb-2" />
     <p className="text-xs text-gray-500">Sunset</p>
-    <p className="text-lg font-semibold">{formatTime(times?.sunset)}</p>
+    <p className="text-sm font-semibold">{formatTime(times?.sunset)}</p>
   </div>
 </div>
 
