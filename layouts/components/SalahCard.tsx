@@ -19,15 +19,7 @@ const SalahCard = ({ salah, colors }: any) => {
   useEffect(() => {
     const fetchPrayerTimes = async () => {
       try {
-        const response = await axios.get("http://api.aladhan.com/v1/timingsByCity", {
-          params: {
-            city: "Torrance",
-            country: "USA",
-            method: 2, // Method 2 corresponds to ISNA
-            school: 1,
-            apiKey: process.env.NEXT_PUBLIC_ALADHAN_API_KEY,
-          },
-        });
+        const response = await axios.get("/api/prayerTimes");
         setAdhan(response.data.data.timings);
       } catch (error) {
         console.error("Error fetching prayer times:", error);
