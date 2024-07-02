@@ -4,9 +4,17 @@ import moment from "moment";
 import SunriseSunset from "./SunriseSunset";
 import Ayahs from "@layouts/components/ayahCarousal/Ayahs";
 
+interface AdhanTimings {
+  Fajr: string;
+  Dhuhr: string;
+  Asr: string;
+  Maghrib: string;
+  Isha: string;
+}
+
 const SalahCard = ({ salah, colors }: any) => {
   const timings = salah?.data[0]?.attributes;
-  const [adhan, setAdhan] = useState({});
+  const [adhan, setAdhan] = useState<AdhanTimings | null>(null);
 
   useEffect(() => {
     const fetchPrayerTimes = async () => {
