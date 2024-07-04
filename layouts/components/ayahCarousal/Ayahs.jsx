@@ -38,7 +38,7 @@ const Ayahs = () => {
 
   return (
     <div className="container mx-auto">
-      <h2 className="flex justify-center text-2xl font-light mb-4">Ponder on the Quran</h2>
+      <h2 className="flex justify-center text-2xl font-light mb-4">Reflect on the Quran</h2>
       <Slider {...settings}>
         {ayahs.map((verse, index) => (
           <div key={index} className="p-4">

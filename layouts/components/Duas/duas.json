@@ -1,0 +1,51 @@
+{
+    "happy": [
+      {
+        "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ زَوَالِ نِعْمَتِكَ، وَتَحَوُّلِ عَافِيَتِكَ، وَفُجَاءَةِ نِقْمَتِكَ، وَجَمِيعِ سَخَطِكَ",
+        "translation": "O Allah! I seek refuge in You from the decline of Your blessings, the passing of safety, the sudden onset of Your punishment and from all that displeases you."
+      }
+    ],
+    "sad": [
+      {
+        "arabic": "اللهم اخرجني من الظلمات إلى النور",
+        "translation": "Oh Allah take me out of darkness and into the light."
+      }
+    ],
+    "anxious": [
+      {
+        "arabic": "اللهم امنحني القوة لأقاوم نفسي، والشجاعة لأواجه ضعفي، واليقين لأتقبل قدري، والرضا ليرتاح عقلي، والفهم ليطمئن قلبي",
+        "translation": "Oh Allah! Grant me the strength to oppose myself, the courage to face my weakness, the conviction to accept my faith, the satisfaction to relax my mind, and the understanding to reassure my heart."
+      }
+    ],
+    "confused": [
+      {
+        "arabic": "اللهم إن كان هذا الأمر خيرا لي فَاقْدُرْهُ لِي وَيَسِّرْهُ لِي ثُمَّ بَارِكْ لِي فِيهِ",
+        "translation": "Oh Allah, if my intended action is best for me, make it destined and easy for me, and grant me Your Blessings in it."
+      }
+    ],
+    "angry": [
+      {
+        "arabic": "اللهم اغفر لي وارحمني واهدني واجبرني",
+        "translation": "Oh Allah, forgive me, have mercy on me, guide me, and heal me."
+      }
+    ],
+    "worried": [
+      {
+        "arabic": "اللهم اجعل في قلبي نورا وفي سمعي نورا وفي بصري نورا ومن خلفي نورا ومن أمامي نورا",
+        "translation": "Oh Allah, place light in my heart, light in my hearing, light in my sight, light behind me, and light in front of me."
+      }
+    ],
+    "looking_for_job": [
+      {
+        "arabic": "اللهم اكفني بحلالك عن حرامك وأغنني بفضلك عمن سواك",
+        "translation": "Oh Allah, suffice me with what is lawful against what is prohibited, and make me independent of all those besides You."
+      }
+    ],
+    "trying_to_get_married": [
+      {
+        "arabic": "ربنا هب لنا من أزواجنا وذرياتنا قرة أعين واجعلنا للمتقين إماما",
+        "translation": "Our Lord, grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous."
+      }
+    ]
+  }
+  

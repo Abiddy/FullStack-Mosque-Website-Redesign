@@ -29,7 +29,7 @@ const SunriseSunset = ({friday}: any) => {
   }, []);
 
   const formatTime = (time: any) => {
-    return moment(time, "HH:mm:ss.SSS").format("hh:mm A");
+    return moment(time, "HH:mm:ss.SSS").format("hh:mm a").replace(/^0/, '');
   };
 
   return (

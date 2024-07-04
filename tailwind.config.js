@@ -1,4 +1,5 @@
 const theme = require("./config/theme.json");
+const { nextui } = require("@nextui-org/react");
 
 let font_base = Number(theme.fonts.font_size.base.replace("px", ""));
 let font_scale = Number(theme.fonts.font_size.scale);
@@ -28,6 +29,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./layouts/**/*.{js,ts,jsx,tsx}",
     "./content/**/*.{md,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     screens: {
@@ -74,6 +76,7 @@ module.exports = {
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
     require("tailwind-bootstrap-grid")({ generateContainer: false }),
+    nextui(),
   ],
   // important: true,
 };

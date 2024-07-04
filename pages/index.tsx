@@ -1,18 +1,18 @@
+import React from "react";
 import config from "@config/config.json";
 import theme from "@config/theme.json";
 import Base from "@layouts/Baseof";
 import "swiper/swiper.min.css";
 import { getListPage } from "../lib/contentParser";
 import { useEffect, useState } from "react";
-import Banner from "@layouts/components/Announcements";
-import SalahList from "@layouts/components/SalahList";
 import ContactUs from "@layouts/components/ContactUs";
 import FeatureCard from "@layouts/components/FeatureCard";
-import OverviewCard from "@layouts/components/OverviewCard";
 import SalahCard from "@layouts/components/SalahCard";
-import SalahTable from "@layouts/components/SalahTable";
 import Announcements from "@layouts/components/Announcements";
+import Duas from "@layouts/components/Duas/Duas";
 import Donate from "@layouts/components/Donate";
+import { NextUIProvider } from "@nextui-org/react";
+import {Snippet} from "@nextui-org/react";
 
 async function getSalah() {
   const res = await fetch("/api/salah");
@@ -63,36 +63,30 @@ const Home = ({ frontmatter }: any) => {
   }, []);
 
   return (
-    <Base title={title}>
-
-      {/* salah times 2 */}
-      {salah_type === 2 && (
+    <Base title={title}>  
+        <NextUIProvider>
         <section 
         className="section" 
-        // id="salah"
         >
           <SalahCard salah={salah} colors={colors} />
         </section>
-      )}
+    
 
-      {/* Banner */}
+      {/* Announcements */}
       <section className="section bg-theme-light pb-[50px]" id="announcements">
         <Announcements announcements={announcements} />
       </section>
+
+      {/* <section className="section bg-theme-light pb-[50px]" id="duas">
+        <Duas/>
+      </section> */}
 
       {/* Features */}
       <section className="section">
         <FeatureCard feature={feature} theme={theme} />
       </section>
 
-      {/* salah times 1 */}
-      {salah_type === 1 && (
-        <section key={`salah-${1}`} className={`section bg-theme-light`}>
-          <SalahList salat={salat} />
-        </section>
-      )}
-
-      {/* salah table */}
+      {/* about us */}
       <section className="section bg-theme-light" id="about">
       <div className="container mx-auto  text-center">
           <h2 className=" font-light  mb-8">About Us</h2>
@@ -102,14 +96,16 @@ const Home = ({ frontmatter }: any) => {
           <h4 className="text-lg leading-relaxed mb-8">
             Meet Our Imam!
           </h4>
+          <div className="flex align-center justify-center">
           <img
           src="/images/imam.jpeg"
           alt="Refresh"      
         />
-        <h5 className="text-md mt-4">Sheikh Ahmad Umarji</h5>
+        </div>
+        <h5 className="text-md mt-4 font-light">Sheikh Ahmad Umarji</h5>
           <br/>
           <br/>
-          Sheikh Ahmad Umarji is ...
+         
    
   
         </div>
@@ -131,9 +127,18 @@ const Home = ({ frontmatter }: any) => {
           <br/>
           <Donate/>
           <p className="text-lg leading-relaxed mb-8">
-            Donations can be made by mail & check at:
+            Donations through mail & check at:
           </p>
-          <p className="text-lg font-semibold mb-4">
+          {/* <Snippet symbol="" variant="bordered" 
+          // style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', fontWeight: '300' }}
+          >
+            Islamic Institute of Torrance 
+            <br/>
+            18103, Prairie Ave, Torrance, 
+            <br/>
+            CA 90503
+          </Snippet> */}
+          <p className="text-lg font-md mb-4">
             Islamic Institute of Torrance <br />
             18103, Prairie Ave, Torrance, CA 90503
           </p>
@@ -147,6 +152,7 @@ const Home = ({ frontmatter }: any) => {
       <section className="section bg-theme-light" id="contactUs">
         <ContactUs questions={questions} theme={theme} />
       </section>
+      </NextUIProvider>
     </Base>
   );
 };

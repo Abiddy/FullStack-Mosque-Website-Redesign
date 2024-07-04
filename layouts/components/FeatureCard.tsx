@@ -44,7 +44,7 @@ const FeatureCard = ({ feature, theme }: any) => {
               />
             )}
             <div className="mt-4">
-              {markdownify(item.name, "h3", "h5")}
+           <h5 className="font-light">{item.name}</h5>
               <p className="mt-3">{item.content}</p>
               <a
                 className="mt-3 font-medium hover:underline"

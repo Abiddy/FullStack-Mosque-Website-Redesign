@@ -37,7 +37,6 @@ const Donate = () => {
             iit@torrancemasjid.org copied!
           </div>
         )}
-
         <button 
           onClick={copyToClipboard}
           className="w-full py-4 mb-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-transform transform hover:scale-105">
