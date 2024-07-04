@@ -51,10 +51,10 @@ const SalahCard = ({ salah, colors }: any) => {
         </div>
         <div className="grid grid-cols-3 gap-4 mb-4 items-center justify-items-center">
           <div >
-          <p className="text-md font-md text-gray-600">Prayer</p>
+
           </div>
           <div>
-            <p className="text-md font-md text-gray-400">Adhan</p>
+            <p className="text-md font-md text-gray-450">Adhan</p>
           </div>
           <div>
             <p className="text-md font-md text-gray-600">Iqama</p>
@@ -68,7 +68,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <img src="/images/dawn.png" alt="Fajr" className="h-6 w-6 mr-4" />
                 <p className="text-md font-semibold">Fajr</p>
               </div>
-              <p className="text-md font-light text-gray-400">{formatTime(adhan?.Fajr)}</p>
+              <p className="text-md font-light text-gray-450">{formatTime(adhan?.Fajr)}</p>
               <p className="text-md font-normal text-gray-600">{formatTime(timings?.fajr)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
@@ -81,7 +81,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <img src="/images/clock.png" alt="Dhuhr" className="h-6 w-6 mr-4" />
                 <p className="text-md font-semibold">Dhuhr</p>
               </div>
-              <p className="text-md font-light text-gray-400">{formatTime(adhan?.Dhuhr)}</p>
+              <p className="text-md font-light text-gray-450">{formatTime(adhan?.Dhuhr)}</p>
               <p className="text-md font-normal text-gray-600">{formatTime(timings?.dhuhr)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
@@ -94,7 +94,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <img src="/images/afternoon.png" alt="Asr" className="h-6 w-6 mr-4" />
                 <p className="text-md font-semibold">Asr</p>
               </div>
-              <p className="text-md font-light text-gray-400">{formatTime(adhan?.Asr)}</p>
+              <p className="text-md font-light text-gray-450">{formatTime(adhan?.Asr)}</p>
               <p className="text-md font-normal text-gray-600">{formatTime(timings?.asr)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
@@ -107,7 +107,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <img src="/images/sunset.png" alt="Maghrib" className="h-6 w-6 mr-4" />
                 <p className="text-md font-semibold">Maghrib</p>
               </div>
-              <p className="text-md font-light text-gray-400">{formatTime(adhan?.Maghrib)}</p>
+              <p className="text-md font-light text-gray-450">{formatTime(adhan?.Maghrib)}</p>
               <p className="text-md font-normal text-gray-600">{formatTime(timings?.maghrib)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
@@ -120,7 +120,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <img src="/images/night.png" alt="Isha" className="h-6 w-6 mr-4" />
                 <p className="text-md font-semibold">Isha</p>
               </div>
-              <p className="text-md font-light text-gray-400">{formatTime(adhan?.Isha)}</p>
+              <p className="text-md font-light text-gray-450">{formatTime(adhan?.Isha)}</p>
               <p className="text-md font-normal text-gray-600">{formatTime(timings?.isha)}</p>
             </div>
           </div>
