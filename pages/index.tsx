@@ -72,7 +72,7 @@ const Home = ({ frontmatter }: any) => {
         <section className="mt-20">
           <Banner/>
         </section>
-        <section   style={{ backgroundColor: '#004AAD'}} 
+        <section id="salah"   style={{ backgroundColor: '#004AAD'}} 
         >
           <SalahCard salah={salah} colors={colors} />
         </section>
