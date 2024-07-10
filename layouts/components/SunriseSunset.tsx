@@ -33,7 +33,7 @@ const SunriseSunset = ({friday}: any) => {
   };
 
   return (
-<div className="flex justify-between items-center bg-white p-3 rounded-xl mb-4 pl-10 pr-10"  style={{ backgroundColor: '#F8F8F8' }}>
+<div className="flex justify-between items-center bg-white p-3 rounded-xl mb-4 pl-10 pr-10 shadow-lg"  style={{ backgroundColor: '#F8F8F8' }}>
   <div className="flex flex-col items-center">
     <img src="/images/horizon.png" alt="Sunrise" className="h-10 mb-2" />
     <p className="text-xs text-gray-500">Sunrise</p>

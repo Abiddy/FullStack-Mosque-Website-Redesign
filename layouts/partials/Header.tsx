@@ -37,8 +37,8 @@ const Header = () => {
           </a>
        
         {enable && (
-          <div className="fixed bottom-4 right-4 z-50">
-            <Link className="btn btn-primary z-0 py-[20px]" href={link} rel="">
+          <div className="fixed bottom-5 right-5 z-50">
+            <Link className="btn btn-primary z-0 py-[20px] border border-white" href={link} rel="">
               {label}
             </Link>
           </div>

@@ -160,7 +160,7 @@ const ContactUs = ({ questions }: any) => {
           />
           <div className="flex items-center justify-center">
           <Button className="bg-blue-600 text-white" type="submit">
-            Button
+            Send
           </Button>
           </div>
         </form>

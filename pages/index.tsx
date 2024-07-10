@@ -11,8 +11,10 @@ import SalahCard from "@layouts/components/SalahCard";
 import Announcements from "@layouts/components/Announcements";
 import Duas from "@layouts/components/Duas/Duas";
 import Donate from "@layouts/components/Donate";
+import Header from "@layouts/partials/Header";
 import { NextUIProvider } from "@nextui-org/react";
 import {Snippet} from "@nextui-org/react";
+import { Banner } from "@layouts/components/Banner";
 
 async function getSalah() {
   const res = await fetch("/api/salah");
@@ -63,10 +65,14 @@ const Home = ({ frontmatter }: any) => {
   }, []);
 
   return (
+    <div>
+    <Header/>
     <Base title={title}>  
         <NextUIProvider>
-        <section 
-        className="section" 
+        <section className="mt-20">
+          <Banner/>
+        </section>
+        <section   style={{ backgroundColor: '#004AAD'}} 
         >
           <SalahCard salah={salah} colors={colors} />
         </section>
@@ -102,9 +108,11 @@ const Home = ({ frontmatter }: any) => {
           alt="Refresh"      
         />
         </div>
-        <h5 className="text-md mt-4 font-light">Sheikh Ahmad Umarji</h5>
+        <h5 className="text-md mt-4 font-md">Sheikh Ahmad Umarji</h5>
+        <br/>
+        <p className="font-light pl-8 pr-8">Imam Ahmed Umarji graduated from the Tahfidh and Alimiyyah programs in South Africa, where he studied under esteemed scholars such as Mufti Radha Ul Haq and Mufti Sulaiman Moola. He holds Ijazahs in Qiraaat, Tafseer, and Hadith. In addition, he has a BS degree from Cal Poly Pomona. After graduation, Imam Ahmed served as a Quran and Islamic Studies teacher. Currently, he is the Imam and Religious Director at IIT.</p>
           <br/>
-          <br/>
+     
          
    
   
@@ -154,6 +162,7 @@ const Home = ({ frontmatter }: any) => {
       </section>
       </NextUIProvider>
     </Base>
+    </div>
   );
 };
 

@@ -30,24 +30,15 @@ const SalahCard = ({ salah, colors }: any) => {
   const currentTime = moment().format("MMMM D, YYYY");
 
   return (
-    <div className="container mx-auto">
-      <div className="mt-16"></div>
-      <div id="salah"></div>
+    <div className="container mx-auto pt-10" style={{ backgroundColor: '#004AAD'}}>
+    
       {/* Prayer Times */}
-      <div className="bg-white p-6 rounded-xl" style={{ backgroundColor: '#F8F8F8' }}>
-        <div className="text-left mb-10">
-          <div className="flex justify-content">
-            <img src="/images/frame1.png" alt="App" className="h-11 w-11 mr-4 mt-1" />
-            <div>
-              <h2 className="text-xl font-light">Islamic Center of Torrance</h2>
-              <div className="flex items-center mt-1">
-              <div className="flex items-center mt-1">
-                <p className="text-xs font-light text-gray-500">Torrance, CA  - {currentTime}</p>
-                <img src="/images/updated.png" alt="App" className="h-4 w-4 ml-2" />
-              </div>
-              </div>
-            </div>
-          </div>        
+
+    <div className="bg-white p-6 shadow-md rounded-xl " style={{backgroundColor: '#F8F8F8' }}>
+      <h2 className="flex  text-2xl font-light mb-2 mt-4">ICT Prayer Times</h2>
+      <div className="flex items-center mt-1 mb-5">
+          <p className=" flex justify-centertext-xs font-light text-gray-500">{currentTime}</p>
+          <img src="/images/updated.png" alt="App" className="h-4 w-4 ml-2" />
         </div>
         <div className="grid grid-cols-3 gap-4 mb-4 items-center justify-items-center">
           <div >
@@ -69,7 +60,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <p className="text-md font-semibold">Fajr</p>
               </div>
               <p className="text-md font-light text-gray-450">{formatTime(adhan?.Fajr)}</p>
-              <p className="text-md font-normal text-gray-600">{formatTime(timings?.fajr)}</p>
+              <p className="text-md font-semibold text-gray-600">{formatTime(timings?.fajr)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
           </div>
@@ -82,7 +73,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <p className="text-md font-semibold">Dhuhr</p>
               </div>
               <p className="text-md font-light text-gray-450">{formatTime(adhan?.Dhuhr)}</p>
-              <p className="text-md font-normal text-gray-600">{formatTime(timings?.dhuhr)}</p>
+              <p className="text-md font-semibold text-gray-600">{formatTime(timings?.dhuhr)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
           </div>
@@ -95,7 +86,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <p className="text-md font-semibold">Asr</p>
               </div>
               <p className="text-md font-light text-gray-450">{formatTime(adhan?.Asr)}</p>
-              <p className="text-md font-normal text-gray-600">{formatTime(timings?.asr)}</p>
+              <p className="text-md font-semibold text-gray-600">{formatTime(timings?.asr)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
           </div>
@@ -108,7 +99,7 @@ const SalahCard = ({ salah, colors }: any) => {
                 <p className="text-md font-semibold">Maghrib</p>
               </div>
               <p className="text-md font-light text-gray-450">{formatTime(adhan?.Maghrib)}</p>
-              <p className="text-md font-normal text-gray-600">{formatTime(timings?.maghrib)}</p>
+              <p className="text-md font-semibold text-gray-600">{formatTime(timings?.maghrib)}</p>
             </div>
             <hr className="my-2 border-gray-200" />
           </div>
@@ -121,15 +112,17 @@ const SalahCard = ({ salah, colors }: any) => {
                 <p className="text-md font-semibold">Isha</p>
               </div>
               <p className="text-md font-light text-gray-450">{formatTime(adhan?.Isha)}</p>
-              <p className="text-md font-normal text-gray-600">{formatTime(timings?.isha)}</p>
+              <p className="text-md font-semibold text-gray-600">{formatTime(timings?.isha)}</p>
             </div>
           </div>
         </div>
-      </div>
+    </div>
       <br/>
       <SunriseSunset friday={formatTime(timings?.fridayPrayer)} />
       <br/>
       <Ayahs/>
+      <br/>
+      <br/>
     </div>
   );
 };
