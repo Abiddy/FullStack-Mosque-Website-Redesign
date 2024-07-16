@@ -53,7 +53,7 @@ export function Banner() {
               </h1>
             </div>
             <p style={{ textAlign: 'center', fontSize: '13px', color: 'rgba(255, 255, 255, 1.2)', maxWidth: '90%', marginTop: '20px', fontWeight: '300' }}>
-              Welcome to the Islamic Institute of Torrance (Masjid)! Though small, we are blessed with Allah's barakah. IIT serves not only Torrance but also Lawndale, Inglewood, Gardena, and Redondo Beach!
+              Welcome to Islamic Center of Torrance masjid! Though small, we are blessed with Allah's barakah. ICT serves not only Torrance but also Lawndale, Inglewood, Gardena, and Redondo Beach!
             </p>
           </div>
         </div>

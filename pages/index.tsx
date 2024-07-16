@@ -95,7 +95,7 @@ const Home = ({ frontmatter }: any) => {
       {/* about us */}
       <section className="section bg-theme-light" id="about">
       <div className="container mx-auto  text-center">
-          <h2 className=" font-light  mb-8">About Us</h2>
+        <h2 className=" font-light  mb-8">About Us</h2>
           The Islamic Center of Torrance, previously known as the Islamic Institute of Torrance was established with the puprose of providing a place of worship and education for those of the Islamic faith within the 
           Torrance and surrounding areas. 
           <br/><br/>
@@ -110,12 +110,8 @@ const Home = ({ frontmatter }: any) => {
         </div>
         <h5 className="text-md mt-4 font-md">Sheikh Ahmad Umarji</h5>
         <br/>
-        <p className="font-light pl-8 pr-8">Imam Ahmed Umarji graduated from the Tahfidh and Alimiyyah programs in South Africa, where he studied under esteemed scholars such as Mufti Radha Ul Haq and Mufti Sulaiman Moola. He holds Ijazahs in Qiraaat, Tafseer, and Hadith. In addition, he has a BS degree from Cal Poly Pomona. After graduation, Imam Ahmed served as a Quran and Islamic Studies teacher. Currently, he is the Imam and Religious Director at IIT.</p>
+          <p className="font-light pl-8 pr-8">Imam Ahmed Umarji graduated from the Tahfidh and Alimiyyah programs in South Africa, where he studied under esteemed scholars such as Mufti Radha Ul Haq and Mufti Sulaiman Moola. He holds Ijazahs in Qiraaat, Tafseer, and Hadith. In addition, he has a BS degree from Cal Poly Pomona. After graduation, Imam Ahmed served as a Quran and Islamic Studies teacher. Currently, he is the Imam and Religious Director at IIT.</p>
           <br/>
-     
-         
-   
-  
         </div>
       </section>
 
@@ -137,15 +133,6 @@ const Home = ({ frontmatter }: any) => {
           <p className="text-lg leading-relaxed mb-8">
             Donations through mail & check at:
           </p>
-          {/* <Snippet symbol="" variant="bordered" 
-          // style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', fontWeight: '300' }}
-          >
-            Islamic Institute of Torrance 
-            <br/>
-            18103, Prairie Ave, Torrance, 
-            <br/>
-            CA 90503
-          </Snippet> */}
           <p className="text-lg font-md mb-4">
             Islamic Institute of Torrance <br />
             18103, Prairie Ave, Torrance, CA 90503
