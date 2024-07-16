@@ -17,13 +17,15 @@
 <p align=center>The clients previously built and managed the app on <a href="https://www.yola.com/">Yola</a>, a free website building tool. I used a NEXT JS mosque template and rebuilt the app from scratch. I tried to improve the UX and UI for clarity and ease of use. The new website is deployed on <a href="https://vercel.com/">Vercel</a> and hosted on <a href="https://www.hostinger.com/">Hostinger</a>. I am also using a CMS for mosque content management using this really cool platform called <a href="https://strapi.io/">Strapi</a>, which I hosted on <a href="https://www.heroku.com/">Heroku</a>. </p>
 
 
-<p align=center>
+<p align="center">
+  
 ## Key Features
+
 - Simple and Minimal
 - Fully Responsive
 - Caching enabled
 - Supports Contact Form
 - SEO Friendly
-<!-- installation -->
+</p>
 
 
