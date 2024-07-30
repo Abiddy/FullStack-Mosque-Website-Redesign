@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Announcements = ({ announcements }: any) => {
+const Announcements = ({ announcements }) => {
   if (!announcements || !announcements.data) {
     return <div>Loading...</div>;
   }
@@ -36,7 +36,7 @@ const Announcements = ({ announcements }: any) => {
             </h3>
           </div>
           <Slider {...settings}>
-            {announcements.data.map((announcement: any) => {
+            {announcements.data.map((announcement) => {
               const imageUrl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${announcement.attributes.image.data.attributes.url}`;
               return (
                 <div key={announcement.id} className="p-3 rounded-lg text-left" style={{ backgroundColor: 'white', margin: '10px' }}>

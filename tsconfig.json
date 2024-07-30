@@ -26,6 +26,6 @@
       "@lib/*": ["lib/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "layouts/components/AyahGenerator.jsx", "layouts/components/Embla.tsx", "layouts/components/Banner.jsx", "layouts/components/Announcements.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "layouts/components/AyahGenerator.jsx", "layouts/components/Embla.tsx", "layouts/components/Banner.jsx", "layouts/components/Announcements.jsx"],
   "exclude": ["node_modules"]
 }
