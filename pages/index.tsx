@@ -69,11 +69,12 @@ const Home = ({ frontmatter }: any) => {
     <Header/>
     <Base title={title}>  
         <NextUIProvider>
-        <section className="mt-20">
+        {/* <section className="mt-20">
           <Banner/>
-        </section>
+        </section> */}
         <section id="salah"   style={{ backgroundColor: '#004AAD'}} 
         >
+                <Banner/>
           <SalahCard salah={salah} colors={colors} />
         </section>
     

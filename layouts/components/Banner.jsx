@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 const images = [
   "images/banner1.png",
   "images/banner2.png",
-  "images/banner3.png"
+  "images/banner3.png",
 ];
 
 export function Banner() {
@@ -23,12 +23,12 @@ export function Banner() {
 
   return (
     <div 
-      className="embla" 
+      className="mt-20" 
       ref={emblaRef} 
       style={{ overflow: 'hidden', backgroundColor: '#004AAD' }}
     >
       <div 
-        className="embla__container" 
+        className="" 
         style={{ display: 'flex' }}
       >
         <div 
