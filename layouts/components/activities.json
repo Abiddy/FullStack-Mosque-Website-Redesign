@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Quran Learning",
+      "icon": "/images/quran2.png",
+      "content": "",
+      "readmore": "Islamic Institute of Torrance provides regular Quran recitation and learning classes for people of all ages. The Islamic Institute of Torrance offers a comprehensive range of Quran recitation and learning classes designed for people of all ages. Our programs include in-depth tafseer and seerah (biography of the Prophet Muhammad) sessions held every Tuesday and Thursday. These classes aim to deepen your understanding of the Quran and the life of the Prophet, fostering spiritual growth and knowledge within our community."
+    },
+    {
+      "name": "Youth Activities",
+      "icon": "/images/extra1.png",
+      "content": "",
+      "readmore": "At the Islamic Institute of Torrance (IIT), we have a thriving youth community with weekly events all around the South Bay. These are organized by Young Muslim Brothers and Young Muslim Sisters, offering plenty of chances for socializing, learning, and growing spiritually. Our youth programs work closely with IIT to create a safe and welcoming environment. We aim to nurture and develop future leaders through these activities. Want to know more about Young Muslim Brothers and Young Muslim Sisters? Check out their Instagram page: @ym.losangeles.brothers."
+    },
+    {
+        "name": "Halaqahs",
+        "icon": "/images/chat1.png",
+        "content": "",
+        "readmore":"IIT has regular halaqahs, Seerah classes and Islamic lectures"
+    },
+    {
+        "name": "Events",
+        "icon": "/images/time.png",
+        "content": "",
+        "readmore": "IIT is an exceptional community of muslims brothers and sisters, hosting food parties and events on a regular basis usually on the weekends. Keep a lookout for our announcements for our next event!"
+        }
+  ]
+  

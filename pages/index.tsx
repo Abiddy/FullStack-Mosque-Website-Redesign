@@ -69,9 +69,6 @@ const Home = ({ frontmatter }: any) => {
     <Header/>
     <Base title={title}>  
         <NextUIProvider>
-        {/* <section className="mt-20">
-          <Banner/>
-        </section> */}
         <section id="salah"   style={{ backgroundColor: '#004AAD'}} 
         >
                 <Banner/>
@@ -84,13 +81,9 @@ const Home = ({ frontmatter }: any) => {
         <Announcements announcements={announcements} />
       </section>
 
-      {/* <section className="section bg-theme-light pb-[50px]" id="duas">
-        <Duas/>
-      </section> */}
-
       {/* Features */}
-      <section className="section">
-        <FeatureCard feature={feature} theme={theme} />
+      <section className="section" >
+        <FeatureCard  />
       </section>
 
       {/* about us */}
@@ -101,7 +94,7 @@ const Home = ({ frontmatter }: any) => {
           Torrance and surrounding areas. 
           <br/><br/>
           <h4 className="text-lg leading-relaxed mb-8">
-            Meet Our Imam!
+            Meet Our Resident Imam!
           </h4>
           <div className="flex align-center justify-center">
           <img

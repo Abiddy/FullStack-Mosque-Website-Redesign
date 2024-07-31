@@ -35,7 +35,7 @@ const SalahCard = ({ salah, colors }: any) => {
       {/* Prayer Times */}
 
     <div className="bg-white p-6 shadow-md rounded-xl " style={{backgroundColor: '#F8F8F8' }}>
-      <h2 className="flex  text-2xl font-light mb-2 mt-4">ICT Prayer Times</h2>
+      <h2 className="flex  text-2xl font-light mb-2 mt-4">IIT Prayer Times</h2>
       <div className="flex items-center mt-1 mb-5">
           <p className=" flex justify-centertext-xs font-light text-gray-500">{currentTime}</p>
           <img src="/images/updated.png" alt="App" className="h-4 w-4 ml-2" />
