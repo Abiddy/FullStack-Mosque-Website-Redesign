@@ -118,7 +118,7 @@ const SalahCard = ({ salah, colors }: any) => {
         </div>
     </div>
       <br/>
-      <SunriseSunset friday={timings?.fridayKhutbah} />
+      <SunriseSunset fridayKhutbah={timings?.fridayKhutbah} fridayPrayer={timings?.fridayPrayer}  />
       <br/>
       <Ayahs/>
       <br/>
