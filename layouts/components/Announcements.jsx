@@ -2,7 +2,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import activities from './activities.json'; // Adjust the path as needed
 
 const Announcements = ({ announcements }) => {
   if (!announcements || !announcements.data) {
@@ -41,10 +40,12 @@ const Announcements = ({ announcements }) => {
           const imageUrl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${announcement.attributes.image.data.attributes.url}`;
           return (
             <div key={index} className="p-4">
-              <div className="p-4 rounded-lg text-left bg-white shadow-lg mx-2 mb-10">
+              <div className="p-4 rounded-lg text-left bg-white shadow-lg mx-2 mb-10" style={{ maxWidth: '600px', margin: '0 auto' }}>
                 <div className="flex flex-col items-center">
                   <img
-                    src={imageUrl}
+                    // src={imageUrl}
+                    src='images/brother.jpeg'
+
                     alt="Announcement"
                     className="rounded-t-lg object-cover mb-4"
                     style={{ height: '200px', width: '100%', borderRadius: '10px' }}
