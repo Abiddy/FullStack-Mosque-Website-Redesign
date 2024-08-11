@@ -53,7 +53,7 @@ export function Banner() {
               </h1>
             </div>
             <p style={{ textAlign: 'center', fontSize: '13px', color: 'rgba(255, 255, 255, 1.2)', maxWidth: '90%', marginTop: '20px', fontWeight: '300' }}>
-              Welcome to Islamic Institute of Torrance masjid! Though small, we are blessed with Allah's barakah. IIT serves not only Torrance but also Lawndale, Inglewood, Gardena, and Redondo Beach!
+            Located on 182nd Street in Torrance, The Islamic Institute of Torrance is a small mosque with a big heart, dedicated to fostering a close-knit community and offering spiritual guidance, educational programs, and support to the surrounding areas including Lawndale, Inglewood, Gardena, and Redondo Beach.
             </p>
           </div>
         </div>
