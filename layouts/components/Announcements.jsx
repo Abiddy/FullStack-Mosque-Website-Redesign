@@ -37,7 +37,7 @@ const Announcements = ({ announcements }) => {
       </div>
       <Slider {...settings}>
         {announcements.data.map((announcement, index) => {
-          const imageUrl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${announcement.attributes.image.data.attributes.url}`;
+          const imageUrl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${announcement.attributes.image?.data.attributes.url}`;
           return (
             <div key={index} className="p-4">
               <div className="p-4 rounded-lg text-left bg-white shadow-lg mx-2 mb-10" style={{ maxWidth: '300px', margin: '0 auto' }}>
