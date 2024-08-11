@@ -44,7 +44,7 @@ const Announcements = ({ announcements }) => {
                 <div className="flex flex-col items-center">
                   <img
                     // src={imageUrl}
-                    src='images/brother.jpeg'
+                    src='images/frame1.png'
 
                     alt="Announcement"
                     className="rounded-t-lg object-cover mb-4"
