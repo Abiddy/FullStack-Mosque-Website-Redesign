@@ -49,7 +49,7 @@ export function Banner() {
                 style={{ width: '110px', height: 'auto', marginBottom: '20px' }}
               />
               <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: '400', color: 'white', margin: '0' }}>
-                ISLAMIC INSTITUTE TORRANCE
+                ISLAMIC INSTITUTE OF TORRANCE
               </h1>
             </div>
             <p style={{ textAlign: 'center', fontSize: '13px', color: 'rgba(255, 255, 255, 1.2)', maxWidth: '90%', marginTop: '20px', fontWeight: '300' }}>
