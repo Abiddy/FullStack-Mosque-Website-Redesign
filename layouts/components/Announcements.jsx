@@ -29,9 +29,6 @@ const Announcements = ({ announcements }) => {
         <div className="flex justify-center mt-5 ml-2 mb-10 text-white relative">
             <h3 className="text-2xl font-normal relative">
               Announcements
-              <span className="absolute -top-2 -right-5 bg-red-500 text-white rounded-full px-2 py-1 text-xs font-bold">
-                {announcements.data.length}
-              </span>
             </h3>
           </div>
       </div>

@@ -66,7 +66,7 @@ const Home = ({ frontmatter }: any) => {
 
   return (
     <div>
-    <Header/>
+    <Header announcements={announcements}/>
     <Base title={title}>  
         <NextUIProvider>
         <section id="salah"   style={{ backgroundColor: '#004AAD'}} 

@@ -1,12 +1,5 @@
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { Montserrat } from 'next/font/google';
-
-const montserrat = Montserrat({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 const images = [
   "images/banner4.jpeg",
