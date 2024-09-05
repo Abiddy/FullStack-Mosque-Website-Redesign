@@ -109,30 +109,8 @@ const Home = ({ frontmatter }: any) => {
         </div>
       </section>
 
-      <section className="section" id="donate">
-      
-        <div className="container mx-auto text-center">
-       
-          <h2 className="text-4xl font-light  mb-8">Donate</h2>
-          <div className="text-center pl-4 pr-4 my-8">
-          <p className="text-md italic font-light text-gray-500">
-            {"The example of those who spend their wealth in the way of Allah is like a seed [of grain] that sprouts seven ears; in every ear are a hundred grains. And Allah multiplies [His reward] for whom He wills. Allah is all-Encompassing and Knowing."}
-          </p>
-            <p className="text-lg font-medium text-gray-800 mt-2">
-              Surah Al-Baqarah (2:261)
-            </p>
-          </div>
-          <br/>
+      <section className="section" id="donate" style={{ backgroundColor: '#004AAD'}}>
           <Donate/>
-          <p className="text-lg leading-relaxed mb-8">
-            Donations through mail & check at:
-          </p>
-          <p className="text-lg font-md mb-4">
-            Islamic Institute of Torrance <br />
-            18103, Prairie Ave, Torrance, CA 90503
-          </p>
-       
-        </div>
       </section>
 
 
