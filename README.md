@@ -1,10 +1,5 @@
 <h1 align=center>Mosque Website Redesign</h1> 
 
-<h3 align=center>Before</h3>
-<p align=center>
-
-
-
 <h3 align=center>Before and After</h3>
 <p align=center>
   <img width="330" alt="Screenshot 2024-07-16 at 6 48 39 AM" src="https://github.com/user-attachments/assets/aa4a1710-84cb-4d3d-a049-7f203e8c14b9">
