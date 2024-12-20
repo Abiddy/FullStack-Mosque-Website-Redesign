@@ -2,13 +2,13 @@
 
 <h3 align=center>Before</h3>
 <p align=center>
-<img width="330" alt="Screenshot 2024-07-16 at 6 48 39 AM" src="https://github.com/user-attachments/assets/aa4a1710-84cb-4d3d-a049-7f203e8c14b9">
 
 
-<h3 align=center>After</h3>
+
+<h3 align=center>Before and After</h3>
 <p align=center>
+  <img width="330" alt="Screenshot 2024-07-16 at 6 48 39 AM" src="https://github.com/user-attachments/assets/aa4a1710-84cb-4d3d-a049-7f203e8c14b9">
 <img width="326" alt="Screenshot 2024-07-01 at 12 40 57 PM" src="https://github.com/Abiddy/ictorrance/assets/77697776/e40315b4-86ce-4726-9aa5-cfd5fb24d25d">
-<img width="326" alt="Screenshot 2024-07-16 at 6 49 17 AM" src="https://github.com/user-attachments/assets/3e0a2751-6852-46f2-b712-67fd2057b960">
 
 
 <p align=center>
