@@ -28,7 +28,7 @@ const Donate = () => {
         <p className="text-md italic font-light text-white">
           {"Those who in charity spend of their goods by night and by day, in secret and in public, have their reward with their Lord: on them shall be no fear, nor shall they grieve."}
         </p>
-        <p className="text-sm font-light text-white mt-2">
+        <p className="text-l font-light text-white mt-2">
           - Quran (2:274)
         </p>
       </div>

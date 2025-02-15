@@ -46,7 +46,7 @@ const Ayahs = () => {
 
   return (
     <div className="container mx-auto">
-      <h2 className="flex justify-center text-2xl font-light mb-4 text-white">Reflect on the Quran</h2>
+      <h2 className="flex justify-center text-2xl font-light mb-4 text-black">Reflect on the Quran</h2>
       <Slider {...settings}>
         {ayahs.map((verse, index) => {
           const [surah, ayah] = getSurahAndAyahNumbers(verse.number);

@@ -15,9 +15,14 @@ import Header from "@layouts/partials/Header";
 import { NextUIProvider } from "@nextui-org/react";
 import {Snippet} from "@nextui-org/react";
 import { Banner } from "@layouts/components/Banner";
+import SalahTimer from "@layouts/components/SalahTimer";
 
 async function getSalah() {
   const res = await fetch("/api/salah");
+  return res.json();
+}
+async function getAdhan() {
+  const res = await fetch("/api/prayerTimes");
   return res.json();
 }
 
@@ -36,6 +41,7 @@ const Home = ({ frontmatter }: any) => {
   const { title, salah_type } = config.site;
   const { colors } = theme;
   const [salah, setSalah] = useState<any>();
+  const [adhan, setAdhan] = useState<any>();
   const [announcements, setAnnouncements] = useState<any>();
   const [questions, setQuestions] = useState<any>();
 
@@ -46,6 +52,14 @@ const Home = ({ frontmatter }: any) => {
       setSalah(data);
     }
     _getSalah();
+  }, []);
+
+  useEffect(() => {
+    async function _getAdhan() {
+      const data = await getAdhan();
+      setAdhan(data);
+    }
+    _getAdhan();
   }, []);
 
   useEffect(() => {
@@ -64,15 +78,20 @@ const Home = ({ frontmatter }: any) => {
     _getQuestions();
   }, []);
 
+  console.log({ 'salah': salah, 'adhan': adhan })
+
   return (
     <div>
     <Header announcements={announcements}/>
     <Base title={title}>  
         <NextUIProvider>
-        <section id="salah"   style={{ backgroundColor: '#004AAD'}} 
+        <section id="salah"  
         >
-                <Banner/>
-          <SalahCard salah={salah} colors={colors} />
+          <SalahTimer salah={salah} adhanResponse={adhan} />
+       
+          {/* <Banner/> */}
+          <br/>
+          <SalahCard salah={salah} adhanResponse={adhan} colors={colors}  />
         </section>
     
 

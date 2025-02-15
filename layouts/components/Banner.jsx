@@ -16,9 +16,8 @@ export function Banner() {
 
   return (
     <div 
-      className="mt-20" 
       ref={emblaRef} 
-      style={{ overflow: 'hidden', backgroundColor: '#004AAD' }}
+      style={{ overflow: 'hidden',   marginTop: '110px' }}
     >
       <div 
         className="" 
@@ -28,7 +27,7 @@ export function Banner() {
           className="embla__slide" 
           style={{ flex: '0 0 100%', minWidth: '0' }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '400px', backgroundColor: '#004AAD', padding: '20px', boxSizing: 'border-box' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '400px', padding: '15px', boxSizing: 'border-box' }}>
             <img
               src="images/arrow.png"
               alt="logo"
@@ -41,11 +40,11 @@ export function Banner() {
                 alt="logo"
                 style={{ width: '110px', height: 'auto', marginBottom: '20px' }}
               />
-              <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '20px', fontWeight: '400', color: 'white', margin: '0' }}>
+              <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '15px', fontWeight: '400', color: 'black', margin: '0' }}>
                 ISLAMIC INSTITUTE OF TORRANCE
               </h1>
             </div>
-            <p style={{ textAlign: 'center', fontSize: '13px', color: 'rgba(255, 255, 255, 1.2)', maxWidth: '90%', marginTop: '20px', fontWeight: '300' }}>
+            <p style={{ textAlign: 'center', fontSize: '13px', color: 'black', maxWidth: '90%', marginTop: '5px', fontWeight: '300' }}>
             Located on 182nd Street in Torrance, The Islamic Institute of Torrance is a small mosque with a big heart, dedicated to fostering a close-knit community and offering spiritual guidance, educational programs, and support to the surrounding areas including Lawndale, Inglewood, Gardena, and Redondo Beach.
             </p>
           </div>

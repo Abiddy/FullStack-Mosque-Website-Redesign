@@ -3,23 +3,19 @@ import axios from "axios";
 import moment from "moment";
 import SunriseSunset from "./SunriseSunset";
 import Ayahs from "@layouts/components/ayahCarousal/Ayahs";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faSun, // for Fajr
+  faClock, // for Dhuhr
+  faCloudSun, // for Asr
+  faMoon, // for Maghrib
+  faStarAndCrescent // for Isha
+} from '@fortawesome/free-solid-svg-icons';
 
-const SalahCard = ({ salah, colors }: any) => {
+const SalahCard = ({ salah, adhanResponse, colors }: any) => {
   const timings = salah?.data[0]?.attributes;
-  const [adhan, setAdhan] = useState<any>();
 
-  useEffect(() => {
-    const fetchPrayerTimes = async () => {
-      try {
-        const response = await axios.get("/api/prayerTimes");
-        setAdhan(response.data.data.timings);
-      } catch (error) {
-        console.error("Error fetching prayer times:", error);
-      }
-    };
-
-    fetchPrayerTimes();
-  }, []);
+  const adhan = adhanResponse?.data?.timings
 
   const formatTime = (time: any, addMinutes: number = 0) => {
     const formattedTime = moment(time, "HH:mm:ss.SSS").add(addMinutes, 'minutes').format("hh:mm a").replace(/^0/, '');
@@ -28,16 +24,57 @@ const SalahCard = ({ salah, colors }: any) => {
 
   const currentTime = moment().format("MMMM D, YYYY");
 
+  const iconColor = "#D4AF37"; // Golden color matching the logo
+
   return (
-    <div className="container mx-auto pt-10" style={{ backgroundColor: '#004AAD'}}>
+    <div className="container mx-auto mt-20" style={{ backgroundColor: 'white'}}>
+
+      <div className="bg-white p-6 shadow-md rounded-xl mb-6">
+        <div className="flex flex-col items-center">
+          <h3 className="text-xl font-semibold mb-4">Ramadan 2025!</h3>
+          <p className="text-sm text-gray-600 mb-4 text-center pb-3">
+            Get ready for the blessed month of spiritual growth and increased rewards! Download our Ramadan prayer schedule to stay updated with prayer times during the blessed month
+          </p>
+          <a
+            href="/images/IIT-Ramadan-Schedule.pdf"
+            download
+            className="inline-flex items-center px-6 py-3 bg-[#D4AF37] text-white rounded-lg hover:bg-[#c19b20] transition-colors"
+          >
+            <svg 
+              className="w-4 h-4 mr-2" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth="2" 
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              />
+            </svg>
+            Download Schedule
+          </a>
+        </div>
+      </div>
+
+
+
     
       {/* Prayer Times */}
 
-      <div className="bg-white p-6 shadow-md rounded-xl " style={{backgroundColor: '#F8F8F8' }}>
-        <h2 className="flex  text-2xl font-light mb-2 mt-4">IIT Prayer Times</h2>
-        <div className="flex items-center mt-1 mb-5">
-            <p className=" flex justify-centertext-xs font-light text-gray-500">{currentTime}</p>
-            <img src="/images/updated.png" alt="App" className="h-4 w-4 ml-2" />
+      <div className="bg-white p-6 shadow-md rounded-xl " >
+      <div className="flex justify-center mt-4 mb-4">
+            <img 
+              src="/images/iitlogo-2.png" 
+              alt="IIT Logo"
+              className="h-40 w-60"
+            />
+          </div>
+          <div className="flex items-center justify-center mt-1 mb-5">
+            <p className="text-[12px] font-light text-gray-500">{currentTime}</p>
+            <img src="/images/updated.png" alt="App" className="h-3 w-3 ml-2" />
           </div>
           <div className="grid grid-cols-3 gap-4 mb-4 items-center justify-items-center">
             <div >
@@ -55,7 +92,11 @@ const SalahCard = ({ salah, colors }: any) => {
             <div>
               <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
                 <div className="flex justify-self-start">
-                  <img src="/images/dawn.png" alt="Fajr" className="h-6 w-6 mr-4" />
+                  <FontAwesomeIcon 
+                    icon={faSun} 
+                    className="h-5 w-5 mr-4 mt-[4px]"
+                    style={{ color: iconColor }} 
+                  />
                   <p className="text-md font-semibold">Fajr</p>
                 </div>
                 <p className="text-md font-light text-gray-450">{formatTime(adhan?.Fajr)}</p>
@@ -68,7 +109,11 @@ const SalahCard = ({ salah, colors }: any) => {
             <div>
               <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
                 <div className="flex justify-self-start">
-                  <img src="/images/clock.png" alt="Dhuhr" className="h-6 w-6 mr-4" />
+                  <FontAwesomeIcon 
+                    icon={faClock} 
+                    className="h-5 w-5 mr-4 mt-[4px]"
+                    style={{ color: iconColor }} 
+                  />
                   <p className="text-md font-semibold">Dhuhr</p>
                 </div>
                 <p className="text-md font-light text-gray-450">{formatTime(adhan?.Dhuhr)}</p>
@@ -81,7 +126,11 @@ const SalahCard = ({ salah, colors }: any) => {
             <div>
               <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
                 <div className="flex justify-self-start">
-                  <img src="/images/afternoon.png" alt="Asr" className="h-6 w-6 mr-4" />
+                  <FontAwesomeIcon 
+                    icon={faCloudSun} 
+                    className="h-5 w-5 mr-4 mt-[4px]"
+                    style={{ color: iconColor }} 
+                  />
                   <p className="text-md font-semibold">Asr</p>
                 </div>
                 <p className="text-md font-light text-gray-450">{formatTime(adhan?.Asr)}</p>
@@ -94,11 +143,15 @@ const SalahCard = ({ salah, colors }: any) => {
             <div>
               <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
                 <div className="flex justify-self-start">
-                  <img src="/images/sunset.png" alt="Maghrib" className="h-6 w-6 mr-4" />
+                  <FontAwesomeIcon 
+                    icon={faStarAndCrescent} 
+                    className="h-5 w-5 mr-4 mt-[4px]"
+                    style={{ color: iconColor }} 
+                  />
                   <p className="text-md font-semibold">Maghrib</p>
                 </div>
                 <p className="text-md font-light text-gray-450">{formatTime(adhan?.Maghrib)}</p>
-                <p className="text-md font-semibold text-gray-600">{formatTime(adhan?.Maghrib, 5)}</p> {/* Added 5 minutes */}
+                <p className="text-md font-semibold text-gray-600">{formatTime(adhan?.Maghrib, 5)}</p>
               </div>
               <hr className="my-2 border-gray-200" />
             </div>
@@ -107,7 +160,11 @@ const SalahCard = ({ salah, colors }: any) => {
             <div>
               <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
                 <div className="flex justify-self-start">
-                  <img src="/images/night.png" alt="Isha" className="h-6 w-6 mr-4" />
+                  <FontAwesomeIcon 
+                    icon={faMoon} 
+                    className="h-5 w-5 mr-4 mt-[4px]"
+                    style={{ color: iconColor }} 
+                  />
                   <p className="text-md font-semibold">Isha</p>
                 </div>
                 <p className="text-md font-light text-gray-450">{formatTime(adhan?.Isha)}</p>

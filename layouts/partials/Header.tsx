@@ -21,7 +21,7 @@ const Header = (announcements: any) => {
 
   return (
     <header className="">
-      <nav className="navbar fixed top-0 w-full shadow-md p-7 flex items-center justify-between justify-center bg-white z-50">
+      <nav className="navbar fixed bottom-0 w-full shadow-md p-7 flex items-center justify-between justify-center bg-white z-50">
         <a href="#salah">
           <img src="/images/salah.png" alt="salah" className="h-7 w-7" />
         </a>
@@ -43,13 +43,13 @@ const Header = (announcements: any) => {
           <img src="/images/chat.png" alt="Chat" className="h-6 w-6" />
         </a>
 
-        {enable && (
+        {/* {enable && (
           <div className="fixed bottom-5 right-5 z-50">
             <Link className="btn btn-primary z-0 py-[20px] border border-white" href={link} rel="">
               {label}
             </Link>
           </div>
-        )}
+        )} */}
       </nav>
 
       {showModal && moment(new Date()).isBefore(moment(enddate, "DD-MM-YYYY")) && (
