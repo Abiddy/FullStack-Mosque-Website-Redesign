@@ -11,6 +11,7 @@ import {
   faMoon, // for Maghrib
   faStarAndCrescent // for Isha
 } from '@fortawesome/free-solid-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 const SalahCard = ({ salah, adhanResponse, colors }: any) => {
   const timings = salah?.data[0]?.attributes;
@@ -135,7 +136,7 @@ const SalahCard = ({ salah, adhanResponse, colors }: any) => {
                 <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
                   <div className="flex justify-self-start">
                     <FontAwesomeIcon 
-                      icon={faSun} 
+                      icon={faSun as IconProp} 
                       className="h-5 w-5 mr-4 mt-[4px]"
                       style={{ color: iconColor }} 
                     />
@@ -152,7 +153,7 @@ const SalahCard = ({ salah, adhanResponse, colors }: any) => {
                 <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
                   <div className="flex justify-self-start">
                     <FontAwesomeIcon 
-                      icon={faClock} 
+                      icon={faClock as IconProp} 
                       className="h-5 w-5 mr-4 mt-[4px]"
                       style={{ color: iconColor }} 
                     />
@@ -169,7 +170,7 @@ const SalahCard = ({ salah, adhanResponse, colors }: any) => {
                 <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
                   <div className="flex justify-self-start">
                     <FontAwesomeIcon 
-                      icon={faCloudSun} 
+                      icon={faCloudSun as IconProp} 
                       className="h-5 w-5 mr-4 mt-[4px]"
                       style={{ color: iconColor }} 
                     />
@@ -186,7 +187,7 @@ const SalahCard = ({ salah, adhanResponse, colors }: any) => {
                 <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
                   <div className="flex justify-self-start">
                     <FontAwesomeIcon 
-                      icon={faStarAndCrescent} 
+                      icon={faStarAndCrescent as IconProp} 
                       className="h-5 w-5 mr-4 mt-[4px]"
                       style={{ color: iconColor }} 
                     />
@@ -203,7 +204,7 @@ const SalahCard = ({ salah, adhanResponse, colors }: any) => {
                 <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
                   <div className="flex justify-self-start">
                     <FontAwesomeIcon 
-                      icon={faMoon} 
+                      icon={faMoon as IconProp} 
                       className="h-5 w-5 mr-4 mt-[4px]"
                       style={{ color: iconColor }} 
                     />

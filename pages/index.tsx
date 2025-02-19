@@ -107,7 +107,7 @@ const Home = ({ frontmatter }: any) => {
       </div>
 
       <Header announcements={announcements}/>
-      <Base title={title} className="relative z-10">  
+      <Base title={title}>  
           <NextUIProvider>
           <section id="salah"  
           >

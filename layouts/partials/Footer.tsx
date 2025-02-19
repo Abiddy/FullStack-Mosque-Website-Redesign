@@ -7,7 +7,7 @@ import {
   faYoutube, 
   faInstagram 
 } from '@fortawesome/free-brands-svg-icons';
-
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 const Footer = () => {
   const { copyright, footer_content } = config.params;
   const { footer } = menu;
@@ -59,7 +59,7 @@ const Footer = () => {
               className="text-[#D4AF37] hover:text-[#c19b20] transition-colors hover:scale-110"
             >
               <FontAwesomeIcon 
-                icon={faFacebook} 
+                icon={faFacebook as IconProp} 
                 size="2x"
               />
             </a>
@@ -70,7 +70,7 @@ const Footer = () => {
               className="text-[#D4AF37] hover:text-[#c19b20] transition-colors hover:scale-110"
             >
               <FontAwesomeIcon 
-                icon={faYoutube} 
+                icon={faYoutube as IconProp} 
                 size="2x" 
               />
             </a>
@@ -81,7 +81,7 @@ const Footer = () => {
               className="text-[#D4AF37] hover:text-[#c19b20] transition-colors hover:scale-110"
             >
               <FontAwesomeIcon 
-                icon={faInstagram} 
+                icon={faInstagram as IconProp} 
                 size="2x" 
               />
             </a>
