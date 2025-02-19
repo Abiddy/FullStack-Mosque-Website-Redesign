@@ -1,6 +1,12 @@
 import config from "@config/config.json";
 import menu from "@config/menu.json";
 import { markdownify } from "@lib/utils/textConverter";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faFacebook, 
+  faYoutube, 
+  faInstagram 
+} from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   const { copyright, footer_content } = config.params;
@@ -43,36 +49,45 @@ const Footer = () => {
         
         <div>
           <div className="flex justify-center">
-        <p className="text-black">Follow Us</p>
-        </div>
-            <div className="flex justify-center gap-4 mt-3 mb-8">
-              <a
-                href="https://www.facebook.com/groups/iitorrance/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center"
-              >
-                <img
-                  src="/images/facebook.png"
-                  alt="Facebook Live"
-                  className="h-8 md:h-12 md:w-12"
-                />
-              </a>
-              <a
-                href="https://www.youtube.com/@iitorrance285"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center"
-              >
-                <img
-                  src="/images/youtube.png"
-                  alt="YouTube Channel"
-                  className="h-10 md:h-12 md:w-12"
-                />
-              </a>
-            </div>
+            <p className="text-black text-lg font-light mb-2">Follow Us</p>
+          </div>
+          <div className="flex justify-center gap-8 mt-3 mb-8">
+            <a
+              href="https://www.facebook.com/groups/iitorrance/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#D4AF37] hover:text-[#c19b20] transition-colors hover:scale-110"
+            >
+              <FontAwesomeIcon 
+                icon={faFacebook} 
+                size="2x"
+              />
+            </a>
+            <a
+              href="https://www.youtube.com/@iitorrance285"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#D4AF37] hover:text-[#c19b20] transition-colors hover:scale-110"
+            >
+              <FontAwesomeIcon 
+                icon={faYoutube} 
+                size="2x" 
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/masjidiit/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#D4AF37] hover:text-[#c19b20] transition-colors hover:scale-110"
+            >
+              <FontAwesomeIcon 
+                icon={faInstagram} 
+                size="2x" 
+              />
+            </a>
+          </div>
           <p className="text-sm text-center"> © 2024, Islamic Center of Torrance, 18103 Prairie Ave, Torrance, CA 90504 | (310) 956-8006 </p>
-          <p className="text-center text-gray-900 mt-5 mb-10">Made with حُب in Gardena</p>
+          <p className="text-center text-gray-900 mt-5 mb-10 text-sm font-light">Made with حُب in Gardena</p>
         </div>
       </div>
     </footer>
