@@ -109,7 +109,7 @@ const Home = ({ frontmatter }: any) => {
       <Header announcements={announcements}/>
       <Base title={title}>  
           <NextUIProvider>
-          <section id="salah"  
+          <section id="salah" className="mb-0" 
           >
             <SalahTimer salah={salah} adhanResponse={adhan} />
          

@@ -168,19 +168,28 @@ const SalahTimer = ({ salah, adhanResponse }) => {
     <section
       id="salah"
       style={{
-        padding: '10px',
-        position: 'fixed',
-        top: '20px',
-        left: '50%',
-        transform: 'translateX(-50%)',
+        padding: '15px',
+        margin: '5px auto',
+        marginTop: '20px',
         width: '360px',
         backgroundColor: '#fff',
-        zIndex: 1000,
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         borderRadius: '17px',
       }}
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+      {/* Ramadan Verse */}
+      <div className="text-center mb-3 p-2">
+        <h3 className="text-sm font-semibold mb-2 text-[#D4AF37]">Ramadan Mubarak!</h3>
+        <p className="text-xs text-gray-600">
+          "O you who have believed, decreed upon you is fasting as it was decreed upon those before you that you may be mindful of God (achieve Taqwa)"
+        </p>
+        <p className="text-xs font-medium mt-1 text-[#D4AF37]">
+          - Surah Al-Baqarah, Verse 183
+        </p>
+      </div>
+      <hr className="border-gray-100 mb-2" />
+
+      {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
         <div style={{ display: 'flex', gap: '8px', fontSize: '10px', opacity: 0.7 }}>
           <span style={{ flex: 1, textAlign: 'center' }}>Current</span>
           <span style={{ width: '10px' }}></span>
@@ -231,7 +240,7 @@ const SalahTimer = ({ salah, adhanResponse }) => {
             </span>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
