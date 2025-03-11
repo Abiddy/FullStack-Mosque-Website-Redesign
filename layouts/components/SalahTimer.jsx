@@ -178,15 +178,14 @@ const SalahTimer = ({ salah, adhanResponse }) => {
       }}
     >
       {/* Ramadan Verse */}
-      <div className="text-center mb-3 p-2">
-        <h3 className="text-sm font-semibold mb-2 text-[#D4AF37]">Ramadan Mubarak!</h3>
+      {/* <div className="text-center mb-3 p-2">
         <p className="text-xs text-gray-600">
           "O you who have believed, decreed upon you is fasting as it was decreed upon those before you that you may be mindful of God (achieve Taqwa)"
         </p>
         <p className="text-xs font-medium mt-1 text-[#D4AF37]">
           - Surah Al-Baqarah, Verse 183
         </p>
-      </div>
+      </div> */}
       <hr className="border-gray-100 mb-2" />
 
       {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>

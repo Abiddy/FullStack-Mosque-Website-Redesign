@@ -111,7 +111,7 @@ const Home = ({ frontmatter }: any) => {
           <NextUIProvider>
           <section id="salah" className="mb-0" 
           >
-            <SalahTimer salah={salah} adhanResponse={adhan} />
+            {/* <SalahTimer salah={salah} adhanResponse={adhan} /> */}
          
             {/* <Banner/> */}
             <br/>
