@@ -78,7 +78,10 @@ const WeeklyProgram = () => {
   };
 
   return (
-    <div className="relative h-[300px] w-full overflow-hidden rounded-3xl">
+    <div className="container mx-auto">
+      <div className=" gap-6 mx-auto">
+    <div className="relative h-[400px] w-full overflow-hidden">
+      <h3 className="text-xl font-semibold mb-4">Weekly Programs</h3>
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={page}
@@ -148,6 +151,8 @@ const WeeklyProgram = () => {
           />
         ))}
       </div>
+    </div>
+    </div>
     </div>
   );
 };

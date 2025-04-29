@@ -31,20 +31,6 @@ const SalahCard = ({ salah, adhanResponse, colors }: any) => {
   return (
     <div className="container mx-auto" style={{ backgroundColor: 'white'}}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mx-auto">
-      <div className="flex justify-center mb-4">
-              <img 
-                src="/images/iitlogo-2.png" 
-                alt="IIT Logo"
-                className="h-30 w-40"
-              />
-            </div>
-        {/* Weekly Programs Section */}
-        <div className="lg:col-span-3">
-          <div className="bg-white">
-            <h3 className="text-xl font-semibold mb-4">Weekly Programs</h3>
-            <WeeklyProgram />
-          </div>
-        </div>
 
         {/* Quran Verse */}
         <div className="text-center mb-3 p-2 lg:col-span-3">
