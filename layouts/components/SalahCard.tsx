@@ -12,6 +12,7 @@ import {
   faStarAndCrescent // for Isha
 } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import WeeklyProgram from './WeeklyProgram';
 
 const SalahCard = ({ salah, adhanResponse, colors }: any) => {
   const timings = salah?.data[0]?.attributes;
@@ -29,125 +30,36 @@ const SalahCard = ({ salah, adhanResponse, colors }: any) => {
 
   return (
     <div className="container mx-auto" style={{ backgroundColor: 'white'}}>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
-        {/* Donation Banner - Spans 3 columns */}
-        <div className="lg:col-span-3">
-          <div className="bg-white p-6">
-            <div className="flex flex-col items-center">
-              <h3 className="text-sm font-semibold mb-2">Ramadan Links</h3>
-              <div className="flex flex-wrap justify-center gap-4 w-full max-w-3xl mt-4">
-                {/* Donate Now */}
-                <a
-                  href="/#donate"
-                  className="flex flex-col items-center p-4 w-[130px] bg-[#EEEAFF] rounded-lg hover:shadow-md transition-all"
-                >
-                  <svg 
-                    className="w-10 h-10 mb-2 text-[#4040FF]"
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth="2" 
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
-                  </svg>
-                  <span className="text-sm text-center font-medium text-[#4040FF]">Donate</span>
-                </a>
-                {/* Ramadan Schedule */}
-                <a
-                  href="/images/IIT-Ramadan-Schedule.pdf"
-                  download
-                  className="flex flex-col items-center p-4 w-[130px] bg-[#FFEAF6] rounded-lg hover:shadow-md transition-all"
-                >
-                  <svg 
-                    className="w-10 h-10 mb-2 text-[#E040BB]"
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth="2" 
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                    />
-                  </svg>
-                  <span className="text-sm text-center font-medium text-[#E040BB]">Ramadan Schedule</span>
-                </a>
-                {/* WhatsApp Group */}
-                <a
-                  href="https://chat.whatsapp.com/DSInNauAvtSDRDKUPol8hb"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-center p-4 w-[130px] bg-[#E5FFEA] rounded-lg hover:shadow-md transition-all"
-                >
-                  <svg 
-                    className="w-10 h-10 mb-2 text-[#30B050]"
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth="2" 
-                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                    />
-                  </svg>
-                  <span className="text-sm text-center font-medium text-[#30B050]">Itikaf Group</span>
-                </a>
-                {/* Expenses */}
-                <a
-                  href="/images/IIT-Expenses.pdf"
-                  download
-                  className="flex flex-col items-center p-4 w-[130px] bg-[#FFF0EA] rounded-lg hover:shadow-md transition-all"
-                >
-                  <svg 
-                    className="w-10 h-10 mb-2 text-[#FF4040]"
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth="2" 
-                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span className="text-sm text-center font-medium text-[#FF4040]">IIT Expenses</span>
-                </a>
-              </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mx-auto">
+      <div className="flex justify-center mb-4">
+              <img 
+                src="/images/iitlogo-2.png" 
+                alt="IIT Logo"
+                className="h-30 w-40"
+              />
             </div>
+        {/* Weekly Programs Section */}
+        <div className="lg:col-span-3">
+          <div className="bg-white">
+            <h3 className="text-xl font-semibold mb-4">Weekly Programs</h3>
+            <WeeklyProgram />
           </div>
         </div>
 
+        {/* Quran Verse */}
         <div className="text-center mb-3 p-2 lg:col-span-3">
-        <p className="text-xs text-gray-600">
-          "O you who have believed, decreed upon you is fasting as it was decreed upon those before you that you may attain Taqwa (God consciousness)"
-        </p>
-        <p className="text-xs font-medium mt-1 text-[#D4AF37]">
-          - Surah Al-Baqarah, Verse 183
-        </p>
-      </div>
+          <p className="text-xs text-gray-600">
+            "Say, "Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allāh, Lord of the worlds."
+          </p>
+          <p className="text-xs font-medium mt-1 text-[#D4AF37]">
+            - Surah Al-Baqarah, Verse 162
+          </p>
+        </div>
 
         {/* Prayer Times Card - Spans 2 columns on desktop */}
         <div className="lg:col-span-2">
           <div className="bg-white p-6 shadow-md rounded-xl">
-            <div className="flex justify-center mb-4">
-              <img 
-                src="/images/iitlogo-2.png" 
-                alt="IIT Logo"
-                className="h-40 w-60"
-              />
-            </div>
+          <h3 className="text-xl font-semibold mb-4">Prayer Times</h3>
             <div className="flex items-center justify-center mt-1 mb-5">
               <p className="text-[12px] font-light text-gray-500">{currentTime}</p>
               <img src="/images/updated.png" alt="App" className="h-3 w-3 ml-2" />

@@ -9,13 +9,9 @@ import ContactUs from "@layouts/components/ContactUs";
 import FeatureCard from "@layouts/components/FeatureCard";
 import SalahCard from "@layouts/components/SalahCard";
 import Announcements from "@layouts/components/Announcements";
-import Duas from "@layouts/components/Duas/Duas";
 import Donate from "@layouts/components/Donate";
 import Header from "@layouts/partials/Header";
 import { NextUIProvider } from "@nextui-org/react";
-import {Snippet} from "@nextui-org/react";
-import { Banner } from "@layouts/components/Banner";
-import SalahTimer from "@layouts/components/SalahTimer";
 
 async function getSalah() {
   const res = await fetch("/api/salah");
