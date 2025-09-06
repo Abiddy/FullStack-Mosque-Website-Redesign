@@ -90,15 +90,16 @@ const Home = ({ frontmatter }: any) => {
           {/* Hero Section */}
           <Hero />
 
+          <section id="salah" className="mb-0 bg-theme-light">
+            <br/>
+            <iframe src="https://timing.athanplus.com/masjid/widgets/embed?theme=3&masjid_id=JdGOl7dP" type="text/html" width="100%" height="555" frameborder="0" allowtransparency="true"></iframe>
+          </section>
+
             {/* Weekly Programs Section */}
-            <section className="section bg-theme-light" id="programs">
+            <section className="section" id="programs">
         <WeeklyProgram />
         </section>
 
-          <section id="salah" className="mb-0">
-            <br/>
-            <SalahCard salah={salah} adhanResponse={adhan} colors={colors} />
-          </section>
 
           {/* Announcements */}
           <section className="section bg-theme-light pb-[50px]" id="announcements">
