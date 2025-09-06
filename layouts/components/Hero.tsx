@@ -51,10 +51,10 @@ const Hero = () => {
             Prayer Times
           </Link>
           <Link 
-            href="#programs"
+            href="#announcements"
             className="bg-white text-medium text-black px-8 py-3 rounded-md text-lg hover:bg-white/80 transition-colors rounded-xl"
           >
-            Weekly Programs
+            Announcements
           </Link>
         </div>
       </motion.div>

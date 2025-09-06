@@ -90,8 +90,8 @@ const Home = ({ frontmatter }: any) => {
           {/* Hero Section */}
           <Hero />
 
-          <section id="salah" className="mb-0 bg-theme-light">
-            <br/>
+          <section id="salah" className="mb-0 bg-theme-light mt-10">
+            {/* <br/> */}
             <iframe 
               src="https://timing.athanplus.com/masjid/widgets/embed?theme=3&masjid_id=JdGOl7dP" 
               width="100%" 
@@ -102,10 +102,10 @@ const Home = ({ frontmatter }: any) => {
             ></iframe>
           </section>
 
-            {/* Weekly Programs Section */}
+            {/* Weekly Programs Section
             <section className="section" id="programs">
             <WeeklyProgram />
-            </section>
+            </section> */}
 
 
           {/* Announcements */}
@@ -123,7 +123,7 @@ const Home = ({ frontmatter }: any) => {
             <div className="container mx-auto px-4">
               <h2 className="font-light mb-8 text-center">About Us</h2>
               <div className="text-center lg:text-left mb-8">
-                The Islamic Center of Torrance, previously known as the Islamic Institute of Torrance was established with the purpose of providing a place of worship and education for those of the Islamic faith within the 
+                The Islamic Institute of Torrance was established with the purpose of providing a place of worship and education for those of the Islamic faith within the 
                 Torrance and surrounding areas. 
               </div>
 
