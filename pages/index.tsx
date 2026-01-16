@@ -71,11 +71,11 @@ const Home = ({ frontmatter }: any) => {
                     {/* Text Container */}
                     <div className="lg:w-2/3">
                       <p className="text-base md:text-lg text-white/80 leading-relaxed font-light italic text-left">
-                        "Imam Ahmed Umarji graduated from the Tahfidh and Alimiyyah programs in South Africa, 
+                        &quot;Imam Ahmed Umarji graduated from the Tahfidh and Alimiyyah programs in South Africa, 
                         where he studied under esteemed scholars such as Mufti Radha Ul Haq and Mufti Sulaiman Moola. 
                         He holds Ijazahs in Qiraaat, Tafseer, and Hadith. In addition, he has a BS degree from 
                         Cal Poly Pomona. After graduation, Imam Ahmed served as a Quran and Islamic Studies teacher. 
-                        Currently, he is the Imam and Religious Director at IIT."
+                        Currently, he is the Imam and Religious Director at IIT.&quot;
                       </p>
                     </div>
                   </div>
