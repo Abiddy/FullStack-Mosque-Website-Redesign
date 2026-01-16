@@ -22,9 +22,11 @@ const BackgroundLayer = ({ src, active }: { src: string, active: boolean }) => (
     initial={{ opacity: 0 }}
     animate={{ opacity: active ? 1 : 0 }}
     transition={{ duration: 0.8, ease: "easeInOut" }}
-    className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat will-change-[opacity]"
+    className="fixed inset-[-5%] z-[-1] bg-cover bg-center bg-no-repeat will-change-opacity pointer-events-none"
     style={{ 
-      backgroundImage: `url(${src})`
+      backgroundImage: `url(${src})`,
+      height: '110dvh',
+      width: '110vw'
     }}
   />
 );
@@ -43,7 +45,7 @@ const Base = ({
   const router = useRouter();
   const [activeImage, setActiveImage] = useState("/3.png");
 
-  const images = ["/1.png", "/2.png", "/3.png", "/4.png", "/images/banner1.png"];
+  const images = ["/1.png", "/2.png", "/3.png", "/4.png"];
 
   useEffect(() => {
     const observerOptions = {

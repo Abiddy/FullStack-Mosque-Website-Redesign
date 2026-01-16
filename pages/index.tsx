@@ -37,40 +37,40 @@ const Home = ({ frontmatter }: any) => {
           </section>
 
           {/* about us */}
-          <section className="py-32" id="about">
+          <section className="py-20 md:py-32" id="about">
             <div className="container mx-auto px-4">
-              <div className="max-w-5xl mx-auto bg-black/50 backdrop-blur-md p-12 md:p-20 rounded-3xl border border-white/10 shadow-2xl">
-                <h2 className="text-4xl md:text-6xl font-light mb-12 text-left text-white tracking-tight italic">About Us</h2>
-                <div className="text-left text-xl text-white/90 leading-relaxed mb-20 font-light max-w-3xl">
+              <div className="max-w-5xl mx-auto bg-black/50 backdrop-blur-md p-8 md:p-20 rounded-3xl border border-white/10 shadow-2xl">
+                <h2 className="text-3xl md:text-6xl font-light mb-8 md:mb-12 text-left text-white tracking-tight italic">About Us</h2>
+                <div className="text-left text-lg md:text-xl text-white/90 leading-relaxed mb-12 md:mb-20 font-light max-w-3xl">
                   The Islamic Institute of Torrance was established with the purpose of providing a place of worship and education for those of the Islamic faith within the 
                   Torrance and surrounding areas. 
                 </div>
 
                 {/* Imam Section */}
-                <div className="mt-24 border-t border-white/10 pt-20">
-                  <h4 className="text-xl font-medium mb-12 text-left text-white tracking-widest uppercase">
+                <div className="mt-16 md:mt-24 border-t border-white/10 pt-12 md:pt-20">
+                  <h4 className="text-lg md:text-xl font-medium mb-8 md:mb-12 text-left text-white tracking-widest uppercase">
                     Meet Our Resident Imam
                   </h4>
                   
-                  <div className="flex flex-col lg:flex-row items-start gap-16">
+                  <div className="flex flex-col lg:flex-row items-start gap-10 md:gap-16">
                     {/* Image Container */}
-                    <div className="lg:w-1/3">
-                      <div className="relative group">
+                    <div className="w-full lg:w-1/3">
+                      <div className="relative group max-w-[280px] mx-auto lg:mx-0">
                         <div className="absolute -inset-1 bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                         <img
                           src="/images/imam.jpeg"
                           alt="Sheikh Ahmad Umarji"
-                          className="relative rounded-lg shadow-2xl max-w-full h-auto transition-all duration-700"
+                          className="relative rounded-lg shadow-2xl w-full h-auto transition-all duration-700"
                         />
                       </div>
-                      <h5 className="text-lg font-medium mt-6 text-left text-white">
+                      <h5 className="text-lg font-medium mt-6 text-center lg:text-left text-white">
                         Sheikh Ahmad Umarji
                       </h5>
                     </div>
 
                     {/* Text Container */}
                     <div className="lg:w-2/3">
-                      <p className="text-lg text-white/80 leading-relaxed font-light italic text-left">
+                      <p className="text-base md:text-lg text-white/80 leading-relaxed font-light italic text-left">
                         "Imam Ahmed Umarji graduated from the Tahfidh and Alimiyyah programs in South Africa, 
                         where he studied under esteemed scholars such as Mufti Radha Ul Haq and Mufti Sulaiman Moola. 
                         He holds Ijazahs in Qiraaat, Tafseer, and Hadith. In addition, he has a BS degree from 
@@ -84,8 +84,8 @@ const Home = ({ frontmatter }: any) => {
             </div>
           </section>
 
-          <section className="py-32" id="donate">
-            <div className="container mx-auto">
+          <section className="py-20 md:py-32" id="donate">
+            <div className="container mx-auto px-4">
               <Donate/>
             </div>
           </section>

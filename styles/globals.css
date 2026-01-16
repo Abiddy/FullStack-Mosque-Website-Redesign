@@ -27,12 +27,17 @@
 }
 
 /* Redesign Styles */
-body {
-  @apply antialiased overflow-x-hidden bg-transparent;
+body, html, main, section, div {
+  background-color: transparent !important;
+}
+
+body, html {
+  @apply antialiased overflow-x-hidden;
 }
 
 .page-content-wrapper {
   position: relative;
-  z-index: 20;
+  z-index: 10;
+  background: transparent !important;
 }
   
