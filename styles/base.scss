@@ -3,9 +3,7 @@ html {
 }
 
 body {
-  @apply bg-body font-primary font-normal leading-relaxed text-text;
-  // background-image: url("https://img.freepik.com/free-vector/eid-mubarak-lotus-background-vector_53876-85215.jpg");
-  background-image: url("https://d3owavb6pntfxw.cloudfront.net/eyJidWNrZXQiOiJhcHBsZXRyZWUtaW1hZ2VzLXYxIiwia2V5IjoiQXBwbGUgVHJlZS9iZy1zZWN0aW9uLWZlYXR1cmVkc2VybW9ucy5wbmcifQ==")
+  @apply font-primary font-normal leading-relaxed text-text;
 }
 
 h1,

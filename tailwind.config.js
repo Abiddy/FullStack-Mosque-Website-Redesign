@@ -46,10 +46,10 @@ module.exports = {
   	},
   	extend: {
   		fontFamily: {
-  			sans: [fontPrimary, "Montserrat", "system-ui", "sans-serif"],
+  			sans: ["var(--font-outfit)", fontPrimary, "Montserrat", "system-ui", "sans-serif"],
   			serif: [fontSecondary, "Montserrat", "Georgia", "serif"],
-  			body: ["Open Sans", "system-ui", "sans-serif"],
-  			primary: [fontPrimary, fontPrimaryType].filter(Boolean),
+  			body: ["var(--font-outfit)", "Open Sans", "system-ui", "sans-serif"],
+  			primary: ["var(--font-outfit)", fontPrimary, fontPrimaryType].filter(Boolean),
   			secondary: [fontSecondary, fontSecondaryType].filter(Boolean),
   			mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
   		},

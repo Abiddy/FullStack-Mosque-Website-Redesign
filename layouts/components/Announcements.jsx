@@ -1,69 +1,78 @@
 import React from 'react';
 
-const Announcements = ({ announcements }) => {
-  if (!announcements || !announcements.data) {
-    return (
-      <div className="container mx-auto py-12 px-6">
-        <div className="text-center">
-          <div className="animate-pulse">
-            <div className="h-8 bg-gray-200 rounded w-48 mx-auto mb-4"></div>
-            <div className="h-4 bg-gray-200 rounded w-96 mx-auto mb-8"></div>
-            <div className="space-y-4">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="h-32 bg-gray-200 rounded-lg"></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+const Announcements = () => {
+  const announcements = {
+    data: [
+      {
+        attributes: {
+          Heading: "Halaqah",
+          Description: "IIT Weekly programs by Shaykh Ahmed Umarji- for Tafseer on Tuesday and Seerah on Thursday after Isha",
+          Date: "TUESDAY/THURSDAY AFTER ISHA",
+        }
+      },
+      {
+        attributes: {
+          Heading: "Recite Quran in Group Setting",
+          Description: "Morning Quran Halqa from Monday to Saturday after Fajr Salat. Recite Quran in Group Setting",
+          Date: "EVERY MORNING AFTER FAJR",
+        }
+      },
+      {
+        attributes: {
+          Heading: "First Friday Khutba 12:20 pm 12:40-45 pm",
+          Description: "KHUTBA - 12:20 pm KHATIB - TBA SALAT - 12:40-45 pm",
+          Date: "RECENT",
+        }
+      },
+      {
+        attributes: {
+          Heading: "Friday Khutba First 12:20 Salat 12:40-45 Second 1:20 Salat 1:40-45",
+          Description: "KHUTBA - 12:20 pm KHATIB - IIT TBA SALAT - 1:20-1:40-45 pm",
+          Date: "RECENT",
+        }
+      }
+    ]
+  };
 
   return (
-    <div className="container mx-auto py-12 px-6">
+    <div className="px-6">
       {/* Header Section */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tight">
           IIT Events & Announcements
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+        <p className="text-xl text-white/60 max-w-2xl mx-auto font-light leading-relaxed">
           Stay updated with the latest announcements and news from our community.
         </p>
       </div>
 
-      {/* Announcements Grid - Mobile: Single column, Desktop: Two columns */}
-      <div className="bg-white border border-gray-200 rounded-xl p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 max-h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+      {/* Announcements Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {announcements.data.map((announcement, index) => {
-          const imageUrl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${announcement.attributes.image?.data.attributes.url}`;
           return (
             <div 
               key={index} 
-              className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-300 cursor-pointer group"
+              className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:shadow-xl hover:border-orange-500/50 transition-all duration-500 group"
             >
               {/* Card Header */}
-              <div className="flex items-center mb-3">
-                <span className="bg-orange-500 text-white text-xs font-bold uppercase px-3 py-1 rounded-full">
+              <div className="flex items-center mb-6">
+                <span className="bg-orange-500 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
                   Event
                 </span>
-                <span className="text-gray-400 text-xs mx-2">•</span>
-                <span className="text-gray-500 text-xs uppercase">
+                <span className="text-white/20 text-xs mx-3">|</span>
+                <span className="text-white/60 text-[10px] font-bold uppercase tracking-widest">
                   {announcement.attributes.Date || 'Recent'}
                 </span>
               </div>
 
               {/* Card Content */}
-              <div className="flex items-start justify-between">
-                <div className="flex-1 pr-4">
-                  <h3 className="font-bold text-gray-900 text-lg leading-tight mb-2 group-hover:underline">
-                    {announcement.attributes.Heading || announcement.attributes.title || 'Announcement'}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {announcement.attributes.Description || announcement.attributes.content || 'No description available.'}
-                  </p>
-                </div>
-                
-      
-        
+              <div>
+                <h3 className="font-medium text-white text-xl leading-tight mb-4 group-hover:text-orange-500 transition-colors duration-300">
+                  {announcement.attributes.Heading || 'Announcement'}
+                </h3>
+                <p className="text-white/70 text-base leading-relaxed font-light">
+                  {announcement.attributes.Description || 'No description available.'}
+                </p>
               </div>
             </div>
           );
@@ -72,5 +81,6 @@ const Announcements = ({ announcements }) => {
     </div>
   );
 };
+
 
 export default Announcements;

@@ -19,10 +19,6 @@
     {
       "name": "Donate",
       "url": "#donate"
-    },
-    {
-      "name": "Contact",
-      "url": "#contactUs"
     }
   ],
   "footer": [
@@ -59,10 +55,6 @@
     {
       "name": "Support",
       "menu": [
-        {
-          "text": "FAQ",
-          "url": "/faq"
-        },
         {
           "text": "Privacy Policy",
           "url": "#"

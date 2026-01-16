@@ -45,12 +45,6 @@ const Header = (announcements: any) => {
       icon: "/images/heart2.png",
       alt: "Heart",
       badge: null
-    },
-    {
-      href: "#contactUs",
-      icon: "/images/chat.png",
-      alt: "Chat",
-      badge: null
     }
   ];
 

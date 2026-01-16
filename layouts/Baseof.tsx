@@ -4,6 +4,8 @@ import Footer from "@partials/Footer";
 import Header from "@partials/Header";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export type base = {
   title?: string,
@@ -14,6 +16,18 @@ export type base = {
   canonical?: string,
   children?: any,
 }
+
+const BackgroundLayer = ({ src, active }: { src: string, active: boolean }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: active ? 1 : 0 }}
+    transition={{ duration: 0.8, ease: "easeInOut" }}
+    className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat will-change-[opacity]"
+    style={{ 
+      backgroundImage: `url(${src})`
+    }}
+  />
+);
 
 const Base = ({
   title,
@@ -27,6 +41,48 @@ const Base = ({
   const { meta_image, meta_author, meta_description } = config.metadata;
   const { base_url } = config.site;
   const router = useRouter();
+  const [activeImage, setActiveImage] = useState("/3.png");
+
+  const images = ["/1.png", "/2.png", "/3.png", "/4.png", "/images/banner1.png"];
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3,
+    };
+
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          switch (sectionId) {
+            case 'home':
+            case 'announcements':
+              setActiveImage("/3.png");
+              break;
+            case 'activities':
+              setActiveImage("/2.png");
+              break;
+            case 'about':
+              setActiveImage("/1.png");
+              break;
+            case 'donate':
+              setActiveImage("/4.png");
+              break;
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+    const sections = document.querySelectorAll('section[id], div[id]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, [router.asPath]);
 
   return (
     <>
@@ -100,9 +156,16 @@ const Base = ({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
+      {/* Background Layers */}
+      {images.map((src) => (
+        <BackgroundLayer key={src} src={src} active={activeImage === src} />
+      ))}
+
       {/* main site */}
-      <main>{children}</main>
-      <Footer />
+      <div className="page-content-wrapper min-h-screen flex flex-col">
+        <main className="flex-grow">{children}</main>
+        <Footer />
+      </div>
     </>
   );
 };

@@ -1,82 +1,70 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { FaChevronDown } from "react-icons/fa";
+import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import Link from "next/link";
 
 const Hero = () => {
-  const ref = useRef(null);
-  const { scrollY } = useScroll();
-  
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
   return (
-    <div className="relative h-screen w-full overflow-hidden" ref={ref}>
+    <div id="home" className="relative min-h-screen w-full flex flex-col">
       {/* Navbar */}
       <Navbar />
       
-      {/* Parallax Background */}
-      <motion.div 
-        className="absolute inset-0 z-0"
-        style={{ y, scale: 1.1 }}
-      >
-        <div className="absolute inset-0 bg-black/50 z-10" />
-        <img
-          src="/images/banner4.jpeg"
-          alt="Islamic Center"
-          className="w-full h-full object-cover"
-        />
-      </motion.div>
-
       {/* Content */}
-      <motion.div 
-        className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4"
-        style={{ opacity }}
-      >
-        <h1 className="text-2xl md:text-6xl font-bold mb-4 text-center text-white px-4">
-          Community Based on the Quran and Sunnah
-        </h1>
-        {/* <h1 className="text-4xl md:text-6xl font-bold mb-8 text-center text-white">
-          Strengthening Faith
-        </h1> */}
-        <p className="text-lg md:text-xl text-center max-w-2xl mb-8">
-        "Establish prayer and give zakah and bow with those who bow [in worship]." - Surah Al-Baqarah (2:43)
-        </p>
-        <div className="flex gap-6">
-          <Link 
-            href="#salah"
-            className="bg-white text-medium text-black px-8 py-3 rounded-md text-lg hover:bg-white/80 transition-colors rounded-xl"
+      <div className="flex-grow flex items-center justify-center text-white px-6 md:px-10 lg:px-20">
+        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="text-left"
           >
-            Prayer Times
-          </Link>
-          <Link 
-            href="#announcements"
-            className="bg-white text-medium text-black px-8 py-3 rounded-md text-lg hover:bg-white/80 transition-colors rounded-xl"
-          >
-            Announcements
-          </Link>
-        </div>
-      </motion.div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-8 text-white leading-tight">
+              Community Based on the Quran and Sunnah
+            </h1>
+            
+            <p className="text-xl md:text-2xl font-light text-white/80 max-w-2xl mb-12 italic leading-relaxed">
+              "Establish prayer and give zakah and bow with those who bow [in worship]." <br/>
+              <span className="text-sm font-medium uppercase tracking-widest text-orange-600 not-italic mt-4 block">— Surah Al-Baqarah (2:43)</span>
+            </p>
 
-      {/* Scroll Indicator
-      <motion.div 
-        className="justify-center transform -translate-x-1/2 text-white text-center z-20 cursor-pointer"
-        animate={{
-          y: [0, 10, 0],
-        }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        style={{ opacity }}
-      >
-        <p className="text-base mb-3 font-medium">Weekly Programs</p>
-        <FaChevronDown className="w-8 h-8 mx-auto" />
-      </motion.div> */}
+            <div className="flex flex-col sm:flex-row gap-6 mt-12">
+              <Link 
+                href="#announcements"
+                className="group relative px-10 py-4 bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 rounded-sm overflow-hidden shadow-lg shadow-orange-500/20 text-center"
+              >
+                <span className="relative z-10 uppercase tracking-widest text-xs font-bold whitespace-nowrap">Announcements ↓</span>
+              </Link>
+              <Link 
+                href="#donate"
+                className="group relative px-10 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:border-white hover:bg-white/20 transition-all duration-300 rounded-sm text-center flex items-center justify-center gap-2"
+              >
+                <img src="/images/heart-3.png" alt="heart" className="w-4 h-4" />
+                <span className="relative z-10 uppercase tracking-widest text-xs font-bold whitespace-nowrap">Support Us •</span>
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Salah Times Widget */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            className="w-full flex justify-center lg:justify-end"
+          >
+            <iframe 
+              src="https://timing.athanplus.com/masjid/widgets/embed?theme=1&masjid_id=JdGOl7dP" 
+              width="100%" 
+              height="500" 
+              frameBorder="0" 
+              allowTransparency={true}
+              title="Prayer Timings"
+              className="max-w-md w-full"
+            ></iframe>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Hero; 
+export default Hero;

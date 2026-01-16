@@ -24,4 +24,15 @@
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
-} 
+}
+
+/* Redesign Styles */
+body {
+  @apply antialiased overflow-x-hidden bg-transparent;
+}
+
+.page-content-wrapper {
+  position: relative;
+  z-index: 20;
+}
+  
