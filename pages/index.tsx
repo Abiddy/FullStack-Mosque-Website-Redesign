@@ -7,10 +7,13 @@ import Hero from "@layouts/components/Hero";
 import Announcements from "@layouts/components/Announcements";
 import FeatureCard from "@layouts/components/FeatureCard";
 import Donate from "@layouts/components/Donate";
+import ImageCarousel from "@layouts/components/ImageCarousel";
 import { getListPage } from "@lib/contentParser";
 
 const Home = ({ frontmatter }: any) => {
   const { title } = config.site;
+  const images = ["/1.png", "/2.png", "/3.png", "/4.png", "/images/banner1.png"];
+  const images2 = ["w1.jpg", "w2.jpg", "w3.jpg", "w4.jpg", "w5.jpg"];
 
   return (
       <Base title={title}>  
@@ -21,34 +24,38 @@ const Home = ({ frontmatter }: any) => {
           </div>
 
         {/* Content Sections */}
-        <div className="relative z-10">
+        <div className="relative z-10 bg-white">
+          {/* Carousel before Announcements */}
+          <ImageCarousel images={images} direction="left" speed={30} />
+
           {/* Announcements */}
-          <section className="py-32" id="announcements">
+          <section className="py-10" id="announcements">
             <div className="container mx-auto">
               <Announcements />
             </div>
           </section>
 
           {/* Activities */}
-          <section className="py-32" id="activities">
+          <section className="py-10" id="activities">
             <div className="container mx-auto">
               <FeatureCard  />
             </div>
           </section>
 
+
           {/* about us */}
-          <section className="py-20 md:py-32" id="about">
+          <section className="py-10 md:py-20" id="about">
             <div className="container mx-auto px-4">
-              <div className="max-w-5xl mx-auto bg-black/50 backdrop-blur-md p-8 md:p-20 rounded-3xl border border-white/10 shadow-2xl">
-                <h2 className="text-3xl md:text-6xl font-light mb-8 md:mb-12 text-left text-white tracking-tight italic">About Us</h2>
-                <div className="text-left text-lg md:text-xl text-white/90 leading-relaxed mb-12 md:mb-20 font-light max-w-3xl">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="text-3xl md:text-6xl font-light mb-8 md:mb-12 text-left text-gray-900 tracking-tight italic">About Us</h2>
+                <div className="text-left text-lg md:text-xl text-gray-600 leading-relaxed mb-12 md:mb-20 font-light max-w-3xl">
                   The Islamic Institute of Torrance was established with the purpose of providing a place of worship and education for those of the Islamic faith within the 
                   Torrance and surrounding areas. 
                 </div>
 
                 {/* Imam Section */}
-                <div className="mt-16 md:mt-24 border-t border-white/10 pt-12 md:pt-20">
-                  <h4 className="text-lg md:text-xl font-medium mb-8 md:mb-12 text-left text-white tracking-widest uppercase">
+                <div className="mt-16 md:mt-24 border-t border-gray-100 pt-12 md:pt-20">
+                  <h4 className="text-lg md:text-xl font-medium mb-8 md:mb-12 text-left text-gray-900 tracking-widest uppercase">
                     Meet Our Resident Imam
                   </h4>
                   
@@ -63,14 +70,14 @@ const Home = ({ frontmatter }: any) => {
                           className="relative rounded-lg shadow-2xl w-full h-auto transition-all duration-700"
                         />
                       </div>
-                      <h5 className="text-lg font-medium mt-6 text-center lg:text-left text-white">
+                      <h5 className="text-lg font-medium mt-6 text-center lg:text-left text-gray-900">
                         Sheikh Ahmad Umarji
                       </h5>
                     </div>
 
                     {/* Text Container */}
                     <div className="lg:w-2/3">
-                      <p className="text-base md:text-lg text-white/80 leading-relaxed font-light italic text-left">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light italic text-left">
                         &quot;Imam Ahmed Umarji graduated from the Tahfidh and Alimiyyah programs in South Africa, 
                         where he studied under esteemed scholars such as Mufti Radha Ul Haq and Mufti Sulaiman Moola. 
                         He holds Ijazahs in Qiraaat, Tafseer, and Hadith. In addition, he has a BS degree from 
@@ -84,7 +91,10 @@ const Home = ({ frontmatter }: any) => {
             </div>
           </section>
 
-          <section className="py-20 md:py-32" id="donate">
+          {/* Carousel before Donate */}
+          <ImageCarousel images={images2} direction="right" speed={45} />
+
+          <section className="py-10 md:py-20" id="donate">
             <div className="container mx-auto px-4">
               <Donate/>
             </div>

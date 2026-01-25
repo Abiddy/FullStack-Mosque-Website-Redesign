@@ -38,10 +38,10 @@ const Announcements = () => {
     <div className="px-4 md:px-6">
       {/* Header Section */}
       <div className="text-center mb-12 md:mb-20">
-        <h2 className="text-3xl md:text-6xl font-light text-white mb-4 md:mb-6 tracking-tight">
+        <h2 className="text-3xl md:text-6xl font-light text-gray-900 mb-4 md:mb-6 tracking-tight">
           IIT Events & Announcements
         </h2>
-        <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto font-light leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
           Stay updated with the latest announcements and news from our community.
         </p>
       </div>
@@ -52,25 +52,25 @@ const Announcements = () => {
           return (
             <div 
               key={index} 
-              className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 hover:shadow-xl hover:border-orange-500/50 transition-all duration-500 group"
+              className="bg-gray-50/50 border border-gray-100 rounded-2xl p-6 md:p-8 hover:shadow-xl hover:border-orange-500/50 transition-all duration-500 group"
             >
               {/* Card Header */}
               <div className="flex items-center mb-4 md:mb-6">
                 <span className="bg-orange-500 text-white text-[9px] md:text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
                   Event
                 </span>
-                <span className="text-white/20 text-xs mx-3">|</span>
-                <span className="text-white/60 text-[9px] md:text-[10px] font-bold uppercase tracking-widest">
+                <span className="text-gray-200 text-xs mx-3">|</span>
+                <span className="text-gray-400 text-[9px] md:text-[10px] font-bold uppercase tracking-widest">
                   {announcement.attributes.Date || 'Recent'}
                 </span>
               </div>
 
               {/* Card Content */}
               <div>
-                <h3 className="font-medium text-white text-lg md:text-xl leading-tight mb-3 md:mb-4 group-hover:text-orange-500 transition-colors duration-300">
+                <h3 className="font-medium text-gray-900 text-lg md:text-xl leading-tight mb-3 md:mb-4 group-hover:text-orange-500 transition-colors duration-300">
                   {announcement.attributes.Heading || 'Announcement'}
                 </h3>
-                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light">
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed font-light">
                   {announcement.attributes.Description || 'No description available.'}
                 </p>
               </div>

@@ -36,15 +36,15 @@ const FeatureCard = () => {
   return (
     <div className="px-4 md:px-6">
       <div className="text-center mb-12 md:mb-20">
-        <h2 className="text-3xl md:text-6xl font-light text-white tracking-tight">Our Activities</h2>
+        <h2 className="text-3xl md:text-6xl font-light text-gray-900 tracking-tight">Our Activities</h2>
       </div>
       <div className="grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-6xl mx-auto">
         {activities.map((item, i) => (
-          <div key={`feature-${i}`} className="bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-8 transition-all duration-500 hover:shadow-2xl hover:bg-white/20 hover:-translate-y-2 group">
+          <div key={`feature-${i}`} className="bg-gray-50/50 border border-gray-100 rounded-3xl p-6 md:p-8 transition-all duration-500 hover:shadow-xl hover:bg-white hover:-translate-y-2 group">
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
               {item.icon && (
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/10 flex items-center justify-center p-3 md:p-4 group-hover:scale-110 transition-transform duration-500">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gray-100 flex items-center justify-center p-3 md:p-4 group-hover:scale-110 transition-transform duration-500">
                     <img
                       src={item.icon}
                       alt={item.name}
@@ -54,8 +54,8 @@ const FeatureCard = () => {
                 </div>
               )}
               <div className="flex-grow text-center md:text-left">
-                <h5 className="text-lg md:text-xl font-medium text-white mb-2 md:mb-3 group-hover:text-orange-500 transition-colors">{item.name}</h5>
-                <p className="text-white/60 font-light text-sm md:text-base leading-relaxed mb-3 md:mb-4 line-clamp-2">{item.content}</p>
+                <h5 className="text-lg md:text-xl font-medium text-gray-900 mb-2 md:mb-3 group-hover:text-orange-500 transition-colors">{item.name}</h5>
+                <p className="text-gray-500 font-light text-sm md:text-base leading-relaxed mb-3 md:mb-4 line-clamp-2">{item.content}</p>
                 <button
                   className="inline-flex items-center text-orange-500 font-medium text-xs md:text-sm uppercase tracking-widest hover:gap-2 transition-all duration-300"
                   onClick={() => handleExpand(item)}

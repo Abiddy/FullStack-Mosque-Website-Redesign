@@ -22,10 +22,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolling ? 'py-4 bg-black/40 backdrop-blur-md' : 'py-6 md:py-8 bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolling ? 'py-4 bg-white/80 backdrop-blur-md shadow-sm' : 'py-6 md:py-8 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-10 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <span className="uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold text-white whitespace-normal md:whitespace-nowrap max-w-[150px] md:max-w-none">
+          <span className={`uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold transition-colors duration-300 whitespace-normal md:whitespace-nowrap max-w-[150px] md:max-w-none ${isScrolling ? 'text-gray-900' : 'text-gray-900'}`}>
             Islamic Institute of Torrance
           </span>
         </Link>
@@ -35,7 +35,7 @@ const Navbar = () => {
             <Link
               key={item.title}
               href={item.href}
-              className="uppercase tracking-[0.15em] text-[10px] md:text-[11px] font-bold text-white/60 hover:text-orange-500 transition-colors"
+              className={`uppercase tracking-[0.15em] text-[10px] md:text-[11px] font-bold transition-colors hover:text-orange-500 ${isScrolling ? 'text-gray-600' : 'text-gray-600'}`}
             >
               {item.title}
             </Link>
