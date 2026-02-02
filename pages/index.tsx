@@ -14,7 +14,7 @@ import Image from "next/image";
 const Home = ({ frontmatter }: any) => {
   const { title } = config.site;
   const images = ["w1.jpg", "/2.png", "/3.png", "w5.jpg", "/images/banner1.png"];
-  const images2 = [".jpg", "w2.jpg", "w4.jpg", "/4.png", "w3.jpg"];
+  const images2 = ["/1.png", "w2.jpg", "w4.jpg", "/4.png", "w3.jpg"];
 
   return (
       <Base title={title}>  
