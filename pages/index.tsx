@@ -27,7 +27,7 @@ const Home = ({ frontmatter }: any) => {
         {/* Content Sections */}
         <div className="relative z-10 bg-white">
           {/* Carousel before Announcements */}
-          <ImageCarousel images={images} direction="left" speed={30} />
+          <ImageCarousel images={images} />
 
           {/* Announcements */}
           <section className="py-10" id="announcements">
@@ -97,7 +97,7 @@ const Home = ({ frontmatter }: any) => {
           </section>
 
           {/* Carousel before Donate */}
-          <ImageCarousel images={images2} direction="right" speed={45} />
+          <ImageCarousel images={images2} />
 
           <section className="py-10 md:py-20" id="donate">
             <div className="container mx-auto px-4">
