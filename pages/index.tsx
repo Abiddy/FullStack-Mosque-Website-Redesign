@@ -9,11 +9,12 @@ import FeatureCard from "@layouts/components/FeatureCard";
 import Donate from "@layouts/components/Donate";
 import ImageCarousel from "@layouts/components/ImageCarousel";
 import { getListPage } from "@lib/contentParser";
+import Image from "next/image";
 
 const Home = ({ frontmatter }: any) => {
   const { title } = config.site;
-  const images = ["/1.png", "/2.png", "/3.png", "/4.png", "/images/banner1.png"];
-  const images2 = ["w1.jpg", "w2.jpg", "w3.jpg", "w4.jpg", "w5.jpg"];
+  const images = ["w1.jpg", "/2.png", "/3.png", "w5.jpg", "/images/banner1.png"];
+  const images2 = [".jpg", "w2.jpg", "w4.jpg", "/4.png", "w3.jpg"];
 
   return (
       <Base title={title}>  
@@ -64,11 +65,15 @@ const Home = ({ frontmatter }: any) => {
                     <div className="w-full lg:w-1/3">
                       <div className="relative group max-w-[280px] mx-auto lg:mx-0">
                         <div className="absolute -inset-1 bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                        <img
-                          src="/images/imam.jpeg"
-                          alt="Sheikh Ahmad Umarji"
-                          className="relative rounded-lg shadow-2xl w-full h-auto transition-all duration-700"
-                        />
+                        <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden shadow-2xl">
+                          <Image
+                            src="/images/imam.jpeg"
+                            alt="Sheikh Ahmad Umarji"
+                            fill
+                            sizes="(max-width: 768px) 280px, 33vw"
+                            className="object-cover transition-all duration-700"
+                          />
+                        </div>
                       </div>
                       <h5 className="text-lg font-medium mt-6 text-center lg:text-left text-gray-900">
                         Sheikh Ahmad Umarji

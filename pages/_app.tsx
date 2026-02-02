@@ -2,7 +2,6 @@ import config from "@config/config.json";
 import theme from "@config/theme.json";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import TagManager from "react-gtm-module";
 import "styles/style.scss";
 import "styles/globals.css";
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -11,6 +10,8 @@ import { GoogleAnalytics } from "nextjs-google-analytics";
 import { Outfit } from 'next/font/google';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
+import Lenis from '@studio-freight/lenis';
 
 const outfit = Outfit({ 
   subsets: ['latin'],
@@ -23,15 +24,31 @@ fConfig.autoAddCss = false
 const App = ({ Component, pageProps }: any) => {
   const router = useRouter();
 
-  // google tag manager (gtm)
-  const tagManagerArgs = {
-    gtmId: config.params.tag_manager_id,
-  };
   useEffect(() => {
-    setTimeout(() => {
-        config.params.tag_manager_id &&
-        TagManager.initialize(tagManagerArgs);
-    }, 5000);
+    // Initialize Lenis smooth scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Clean up on unmount
+    return () => {
+      lenis.destroy();
+    };
   }, []);
 
   return (
@@ -42,7 +59,26 @@ const App = ({ Component, pageProps }: any) => {
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
       </Head>
+      
+      {/* Google Analytics */}
       <GoogleAnalytics trackPageViews gaMeasurementId={config.params.ga_tag} />
+      
+      {/* Google Tag Manager - Loaded with low priority */}
+      {config.params.tag_manager_id && (
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${config.params.tag_manager_id}');
+            `,
+          }}
+        />
+      )}
       
       <AnimatePresence mode="wait" initial={false}>
         <motion.div

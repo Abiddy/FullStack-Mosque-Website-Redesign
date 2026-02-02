@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import Link from "next/link";
+import Image from "next/image";
 
 const Hero = () => {
   return (
@@ -38,7 +39,9 @@ const Hero = () => {
                 href="#donate"
                 className="group relative px-8 md:px-10 py-3 md:py-4 bg-gray-100 border border-gray-200 text-gray-900 hover:border-orange-500 hover:text-orange-500 transition-all duration-300 rounded-sm text-center flex items-center justify-center gap-2"
               >
-                <img src="/images/heart-3.png" alt="heart" className="w-3 md:w-4 h-3 md:h-4 opacity-70 group-hover:opacity-100" />
+                <div className="relative w-3 md:w-4 h-3 md:h-4">
+                  <Image src="/images/heart-3.png" alt="heart" fill className="opacity-70 group-hover:opacity-100 object-contain" />
+                </div>
                 <span className="relative z-10 uppercase tracking-widest text-[10px] md:text-xs font-bold whitespace-nowrap">Support Us •</span>
               </Link>
             </div>

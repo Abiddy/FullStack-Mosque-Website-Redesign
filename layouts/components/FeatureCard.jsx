@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import activities from './activities.json';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Modal = ({ title, body, handleClose }) => {
   return (
@@ -44,11 +45,12 @@ const FeatureCard = () => {
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
               {item.icon && (
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gray-100 flex items-center justify-center p-3 md:p-4 group-hover:scale-110 transition-transform duration-500">
-                    <img
+                  <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gray-100 flex items-center justify-center p-3 md:p-4 group-hover:scale-110 transition-transform duration-500">
+                    <Image
                       src={item.icon}
                       alt={item.name}
-                      className="w-full h-full object-contain transition-all duration-500"
+                      fill
+                      className="object-contain p-2 md:p-3 transition-all duration-500"
                     />
                   </div>
                 </div>
