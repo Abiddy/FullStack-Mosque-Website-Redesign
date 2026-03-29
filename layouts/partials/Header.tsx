@@ -50,27 +50,29 @@ const Header = (announcements: any) => {
 
   return (
     <header>
-      <div className="fixed bottom-0 w-full z-50 flex justify-center pb-4">
-        <Dock className="bg-white/90 dark:bg-black/70 border-gray-200 shadow-lg">
-          {navigationItems.map((item, index) => (
-            <a key={index} href={item.href} className="relative">
-              <DockIcon className="hover:bg-gray-100/50 dark:hover:bg-gray-800/50">
-                <div className="relative w-6 h-6">
-                  <img
-                    src={item.icon}
-                    alt={item.alt}
-                    className="w-full h-full object-contain"
-                  />
-                  {item.badge && (
-                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] text-white">
-                      {item.badge}
-                    </span>
-                  )}
-                </div>
-              </DockIcon>
-            </a>
-          ))}
-        </Dock>
+      <div className="fixed bottom-0 w-full z-50 flex justify-center pb-4 px-3">
+        <div className="flex max-w-full flex-col overflow-hidden rounded-2xl shadow-lg shadow-stone-900/10 ring-1 ring-[color-mix(in_srgb,var(--ink)_12%,transparent)]">
+          <Dock className="!mt-0 rounded-2xl border-0 bg-[color-mix(in_srgb,var(--sandy-cream)_92%,white)]/95 shadow-none backdrop-blur-md">
+            {navigationItems.map((item, index) => (
+              <a key={index} href={item.href} className="relative">
+                <DockIcon className="hover:bg-stone-200/70">
+                  <div className="relative w-6 h-6">
+                    <img
+                      src={item.icon}
+                      alt={item.alt}
+                      className="w-full h-full object-contain"
+                    />
+                    {item.badge && (
+                      <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] text-white">
+                        {item.badge}
+                      </span>
+                    )}
+                  </div>
+                </DockIcon>
+              </a>
+            ))}
+          </Dock>
+        </div>
       </div>
 
       {showModal && moment(new Date()).isBefore(moment(enddate, "DD-MM-YYYY")) && (

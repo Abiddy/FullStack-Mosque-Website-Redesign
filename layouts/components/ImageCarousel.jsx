@@ -25,11 +25,13 @@ const ImageCarousel = ({ images }) => {
   const opacity = useTransform(smoothProgress, [0.05, 0.2], [0, 1]);
 
   return (
-    <div 
+    <div
       ref={containerRef}
-      className="relative w-full overflow-hidden py-24 md:py-64 bg-white isolation-auto"
+      className="relative w-full overflow-hidden isolation-auto"
       style={{ contain: 'paint' }}
     >
+      <div className="pattern-h-strip shrink-0" aria-hidden />
+      <div className="bg-[var(--terracotta)] py-24 md:py-64">
       <div className="flex justify-center items-center min-h-[250px] md:min-h-[500px] w-full relative">
         <motion.div
           className="relative flex items-center justify-center w-full"
@@ -68,7 +70,7 @@ const ImageCarousel = ({ images }) => {
                 }}
               >
                 {/* Mobile-responsive card sizes */}
-                <div className="w-[120px] h-[160px] sm:w-[150px] sm:h-[200px] md:w-[280px] md:h-[380px] rounded-[1.2rem] md:rounded-[2rem] overflow-hidden shadow-xl md:shadow-2xl border-[4px] md:border-[6px] border-white bg-white relative">
+                <div className="w-[120px] h-[160px] sm:w-[150px] sm:h-[200px] md:w-[280px] md:h-[380px] rounded-[1.2rem] md:rounded-[2rem] overflow-hidden shadow-xl md:shadow-2xl border-[4px] md:border-[6px] border-white/35 bg-black/10 relative">
                   <Image
                     src={src}
                     alt=""
@@ -84,6 +86,8 @@ const ImageCarousel = ({ images }) => {
           })}
         </motion.div>
       </div>
+      </div>
+      <div className="pattern-h-strip shrink-0" aria-hidden />
     </div>
   );
 };

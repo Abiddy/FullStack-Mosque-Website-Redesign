@@ -2,10 +2,72 @@
   isolation: isolate;
 }
 
+/* Laymoon-inspired sandy palette + section backgrounds */
+:root {
+  --sandy-canvas: #d4c9b4;
+  --sandy-cream: #ebe3d4;
+  --sandy-muted: #c9bba5;
+  --terracotta: #a84a28;
+  --terracotta-hover: #8f3e22;
+  --ink: #2c241c;
+  --sand-hero: #f3ebe0;
+  --sand-announcements: #e9e1d4;
+  --sand-activities: #ded4c4;
+  --sand-about: #d3c8b6;
+  --sand-donate: #ebe2d6;
+  --sand-footer: #dfd3c2;
+  /* Pattern asset 838×609 — height fixed, width scales with aspect */
+  --pattern-strip-height: 96px;
+}
+
+/* Hero ayah: word-by-word fade (SSR-safe; Framer can skip on hydrate) */
+@keyframes hero-ayah-word-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-ayah-word {
+  display: inline-block;
+  margin-right: 0.28em;
+  opacity: 0;
+  animation: hero-ayah-word-in 0.58s cubic-bezier(0.22, 0.12, 0.28, 1) forwards;
+  animation-delay: calc(var(--w, 0) * 0.14s);
+}
+
+.hero-ayah-cite {
+  opacity: 0;
+  animation: hero-ayah-word-in 0.72s ease-out forwards;
+  animation-delay: var(--cite-d, 2.6s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ayah-word,
+  .hero-ayah-cite {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.pattern-h-strip {
+  height: var(--pattern-strip-height);
+  min-height: var(--pattern-strip-height);
+  width: 100%;
+  background-color: var(--sandy-muted);
+  background-image: url("/images/pattern-geometric-sandy.jpg");
+  background-repeat: repeat-x;
+  background-position: center center;
+  /* auto width preserves 838:609 proportions; only height is fixed */
+  background-size: auto var(--pattern-strip-height);
+}
+
 /* Custom Scrollbar Styles */
 .scrollbar-thin {
   scrollbar-width: thin;
-  scrollbar-color: #d1d5db #f3f4f6;
+  scrollbar-color: #b8a892 #e8dfd0;
 }
 
 .scrollbar-thin::-webkit-scrollbar {
@@ -13,24 +75,24 @@
 }
 
 .scrollbar-thin::-webkit-scrollbar-track {
-  background: #f3f4f6;
+  background: #e8dfd0;
   border-radius: 3px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: #d1d5db;
+  background: #b8a892;
   border-radius: 3px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: #9a8b72;
 }
 
-/* Redesign Styles - White Theme */
+/* Default page chrome */
 body, html {
   @apply antialiased overflow-x-hidden;
-  background-color: #ffffff !important;
-  color: #1a1a1a !important;
+  background-color: var(--sand-hero) !important;
+  color: var(--ink) !important;
 }
 
 .page-content-wrapper {

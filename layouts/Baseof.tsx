@@ -80,9 +80,9 @@ const Base = ({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <div className="min-h-screen bg-white relative">
+      <div className="min-h-screen bg-[var(--sand-hero)] relative">
         {/* Content Wrapper */}
-        <div className="page-content-wrapper min-h-screen flex flex-col relative z-10">
+        <div className="page-content-wrapper min-h-screen flex flex-col relative z-10 pb-24 md:pb-28">
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
