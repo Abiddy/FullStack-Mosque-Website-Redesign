@@ -14,20 +14,50 @@ const SheikhDashboard = ({ initialQuestions }: Props) => {
       initialQuestions.map((q) => [q.id, q.answer ?? ""])
     )
   );
-  const [filter, setFilter] = useState<"all" | "pending" | "answered">("all");
+  const [filter, setFilter] = useState<
+    "all" | "pending" | "draft" | "published"
+  >("all");
   const [savingId, setSavingId] = useState<string | null>(null);
+  const [publishingId, setPublishingId] = useState<string | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
   const [error, setError] = useState("");
 
   const filtered = questions.filter((q) => {
     if (filter === "pending") return q.status === "pending";
-    if (filter === "answered") return q.status === "answered";
+    if (filter === "draft")
+      return q.status === "answered" && !q.published;
+    if (filter === "published") return q.published;
     return true;
   });
 
   const pendingCount = questions.filter((q) => q.status === "pending").length;
-  const answeredCount = questions.filter((q) => q.status === "answered").length;
+  const draftCount = questions.filter(
+    (q) => q.status === "answered" && !q.published
+  ).length;
+  const publishedCount = questions.filter((q) => q.published).length;
+
+  const handlePublish = async (id: string, publish: boolean) => {
+    setError("");
+    setPublishingId(id);
+    try {
+      const res = await fetch(`/api/sheikh/questions/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(publish ? { publish: true } : { unpublish: true }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.message || "Update failed");
+
+      setQuestions((prev) =>
+        prev.map((q) => (q.id === id ? data.question : q))
+      );
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Update failed.");
+    } finally {
+      setPublishingId(null);
+    }
+  };
 
   const handleSave = async (id: string) => {
     const answer = answers[id]?.trim();
@@ -115,7 +145,8 @@ const SheikhDashboard = ({ initialQuestions }: Props) => {
             [
               ["all", `All (${questions.length})`],
               ["pending", `Pending (${pendingCount})`],
-              ["answered", `Answered (${answeredCount})`],
+              ["draft", `Drafts (${draftCount})`],
+              ["published", `Published (${publishedCount})`],
             ] as const
           ).map(([key, label]) => (
             <button
@@ -151,10 +182,16 @@ const SheikhDashboard = ({ initialQuestions }: Props) => {
                     className={`rounded-full px-2.5 py-0.5 text-xs uppercase tracking-wider ${
                       q.status === "pending"
                         ? "bg-amber-100 text-amber-800"
-                        : "bg-[#eef1ed] text-[#646464]"
+                        : q.published
+                          ? "bg-emerald-100 text-emerald-800"
+                          : "bg-sky-100 text-sky-800"
                     }`}
                   >
-                    {q.status}
+                    {q.status === "pending"
+                      ? "pending"
+                      : q.published
+                        ? "published"
+                        : "draft"}
                   </span>
                   <span className="text-xs text-[#b4b8b4]">
                     {formatDate(q.created_at)}
@@ -187,6 +224,29 @@ const SheikhDashboard = ({ initialQuestions }: Props) => {
                   >
                     {savingId === q.id ? "Saving…" : "Save answer"}
                   </button>
+                  {q.published ? (
+                    <button
+                      type="button"
+                      onClick={() => handlePublish(q.id, false)}
+                      disabled={publishingId === q.id}
+                      className="rounded-full border-2 border-[#dee2de] px-5 py-2 text-sm text-[#646464] hover:border-[#b8beb8] disabled:opacity-50"
+                    >
+                      {publishingId === q.id ? "Updating…" : "Unpublish"}
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => handlePublish(q.id, true)}
+                      disabled={
+                        publishingId === q.id || !answers[q.id]?.trim()
+                      }
+                      className="rounded-full border-2 border-emerald-600 bg-emerald-600 px-5 py-2 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-50"
+                    >
+                      {publishingId === q.id
+                        ? "Publishing…"
+                        : "Publish to Answers"}
+                    </button>
+                  )}
                   <button
                     type="button"
                     onClick={() => setConfirmDeleteId(q.id)}

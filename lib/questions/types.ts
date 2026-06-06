@@ -5,12 +5,14 @@ export type Question = {
   body: string;
   answer: string | null;
   status: QuestionStatus;
+  published: boolean;
   created_at: string;
   updated_at: string;
   answered_at: string | null;
+  published_at: string | null;
 };
 
 export type PublicQuestion = Pick<
   Question,
-  "id" | "body" | "answer" | "answered_at"
+  "id" | "body" | "answer" | "answered_at" | "published_at"
 >;

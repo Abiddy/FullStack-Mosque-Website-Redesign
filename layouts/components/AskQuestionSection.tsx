@@ -70,7 +70,7 @@ const AskQuestionSection = () => {
       setStatus("success");
       setMessage(
         data.message ||
-          "Thank you. Your question has been submitted anonymously."
+          "Thank you. Your question was submitted. Answers appear here once our Sheikh reviews and publishes them."
       );
       setQuestion("");
     } catch (err) {
@@ -103,26 +103,24 @@ const AskQuestionSection = () => {
           veilOpacity="bg-white/22"
         />
 
+        <button
+          type="button"
+          onClick={() => setView((v) => (v === "form" ? "list" : "form"))}
+          className={`absolute right-4 top-4 z-20 rounded-full border-2 px-4 py-2 font-pp text-sm transition-colors md:right-6 md:top-6 ${
+            view === "list"
+              ? "border-[#2c2c2c] bg-[#2c2c2c] text-white"
+              : "border-white/60 bg-white/80 text-[#2c2c2c] backdrop-blur-sm hover:bg-white"
+          }`}
+        >
+          Answers
+        </button>
+
         <div className="relative z-10 w-full max-w-3xl">
           <TextFade className="mb-8 text-center md:mb-10">
             <h2 className="font-pp text-[32px] leading-[0.95] text-[#2c2c2c] md:text-[50px]">
               Have a question?
             </h2>
           </TextFade>
-
-          <div className="mb-5 flex justify-center">
-            <button
-              type="button"
-              onClick={() => setView((v) => (v === "form" ? "list" : "form"))}
-              className={`rounded-full border-2 px-5 py-2 font-pp text-sm transition-colors ${
-                view === "list"
-                  ? "border-[#2c2c2c] bg-[#2c2c2c] text-white"
-                  : "border-white/60 bg-white/80 text-[#2c2c2c] backdrop-blur-sm hover:bg-white"
-              }`}
-            >
-              Questions
-            </button>
-          </div>
 
           <div ref={ref} className="relative min-h-[72px]">
             <AnimatePresence mode="wait">
@@ -190,7 +188,7 @@ const AskQuestionSection = () => {
                     </p>
                   ) : questions.length === 0 ? (
                     <p className="py-8 text-center font-pp text-[#646464]">
-                      No answered questions yet. Check back soon.
+                      No published answers yet. Check back soon.
                     </p>
                   ) : (
                     <ul className="space-y-5">

@@ -13,14 +13,28 @@ export async function ensureSchema() {
           answer TEXT,
           status VARCHAR(20) NOT NULL DEFAULT 'pending'
             CHECK (status IN ('pending', 'answered')),
+          published BOOLEAN NOT NULL DEFAULT false,
           created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
           updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-          answered_at TIMESTAMPTZ
+          answered_at TIMESTAMPTZ,
+          published_at TIMESTAMPTZ
         )
       `;
       await sql`
         CREATE INDEX IF NOT EXISTS questions_status_created_idx
         ON questions (status, created_at DESC)
+      `;
+      await sql`
+        ALTER TABLE questions
+        ADD COLUMN IF NOT EXISTS published BOOLEAN NOT NULL DEFAULT false
+      `;
+      await sql`
+        ALTER TABLE questions
+        ADD COLUMN IF NOT EXISTS published_at TIMESTAMPTZ
+      `;
+      await sql`
+        CREATE INDEX IF NOT EXISTS questions_published_idx
+        ON questions (published, published_at DESC)
       `;
     })();
   }
@@ -33,11 +47,16 @@ function rowToQuestion(row: Record<string, unknown>): Question {
     body: String(row.body),
     answer: row.answer != null ? String(row.answer) : null,
     status: row.status as QuestionStatus,
+    published: Boolean(row.published),
     created_at: new Date(row.created_at as string).toISOString(),
     updated_at: new Date(row.updated_at as string).toISOString(),
     answered_at:
       row.answered_at != null
         ? new Date(row.answered_at as string).toISOString()
+        : null,
+    published_at:
+      row.published_at != null
+        ? new Date(row.published_at as string).toISOString()
         : null,
   };
 }
@@ -52,13 +71,16 @@ export async function createQuestion(body: string): Promise<Question> {
   return rowToQuestion(rows[0]);
 }
 
-export async function listAnsweredQuestions() {
+/** Only sheikh-published Q&A visible on the public site */
+export async function listPublishedQuestions() {
   await ensureSchema();
   const { rows } = await sql`
-    SELECT id, body, answer, answered_at
+    SELECT id, body, answer, answered_at, published_at
     FROM questions
-    WHERE status = 'answered' AND answer IS NOT NULL
-    ORDER BY answered_at DESC NULLS LAST, created_at DESC
+    WHERE status = 'answered'
+      AND answer IS NOT NULL
+      AND published = true
+    ORDER BY published_at DESC NULLS LAST, answered_at DESC NULLS LAST
   `;
   return rows.map((r) => ({
     id: String(r.id),
@@ -67,6 +89,10 @@ export async function listAnsweredQuestions() {
     answered_at:
       r.answered_at != null
         ? new Date(r.answered_at as string).toISOString()
+        : null,
+    published_at:
+      r.published_at != null
+        ? new Date(r.published_at as string).toISOString()
         : null,
   }));
 }
@@ -100,7 +126,40 @@ export async function updateQuestionAnswer(
     SET
       answer = ${trimmed},
       status = 'answered',
-      answered_at = NOW(),
+      answered_at = COALESCE(answered_at, NOW()),
+      updated_at = NOW()
+    WHERE id = ${id}
+    RETURNING *
+  `;
+  if (!rows[0]) return null;
+  return rowToQuestion(rows[0]);
+}
+
+export async function publishQuestion(id: string): Promise<Question | null> {
+  await ensureSchema();
+  const { rows } = await sql`
+    UPDATE questions
+    SET
+      published = true,
+      published_at = NOW(),
+      updated_at = NOW()
+    WHERE id = ${id}
+      AND status = 'answered'
+      AND answer IS NOT NULL
+      AND TRIM(answer) <> ''
+    RETURNING *
+  `;
+  if (!rows[0]) return null;
+  return rowToQuestion(rows[0]);
+}
+
+export async function unpublishQuestion(id: string): Promise<Question | null> {
+  await ensureSchema();
+  const { rows } = await sql`
+    UPDATE questions
+    SET
+      published = false,
+      published_at = NULL,
       updated_at = NOW()
     WHERE id = ${id}
     RETURNING *

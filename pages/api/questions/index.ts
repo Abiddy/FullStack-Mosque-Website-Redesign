@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { createQuestion, listAnsweredQuestions } from "@lib/questions/db";
+import { createQuestion, listPublishedQuestions } from "@lib/questions/db";
 
 export default async function handler(
   req: NextApiRequest,
@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   try {
     if (req.method === "GET") {
-      const questions = await listAnsweredQuestions();
+      const questions = await listPublishedQuestions();
       return res.status(200).json({ questions });
     }
 
@@ -30,7 +30,7 @@ export default async function handler(
       const question = await createQuestion(body);
       return res.status(201).json({
         message:
-          "Thank you. Your question has been submitted anonymously.",
+          "Thank you. Your question was submitted. Answers appear here once our Sheikh reviews and publishes them.",
         id: question.id,
       });
     }
