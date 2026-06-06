@@ -1,0 +1,86 @@
+/* Closer landing page — hero, typography, gradients */
+
+.gradient-text-muted {
+  background: linear-gradient(
+    180deg,
+    rgba(37, 44, 50, 0.7) 0%,
+    rgba(55, 65, 74, 0.7) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero-content {
+  top: calc(50% - 136.5px);
+}
+
+.hero-mosque-content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-prayer-card .font-serif {
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+}
+
+.hero-prayer-card .font-sans {
+  font-family: var(--font-manrope), Manrope, system-ui, sans-serif;
+}
+
+.hero-headline {
+  font-size: 48px;
+  line-height: 1.1;
+}
+
+.hero-headline-gradient {
+  background: radial-gradient(
+    ellipse 120% 80% at 35% 45%,
+    #368cfb 0%,
+    #5caefe 30%,
+    #85bde0 47.5%,
+    #aecdc2 65%,
+    #d6dca3 82.5%,
+    #ffeb85 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero-subheadline {
+  font-size: 18px;
+  letter-spacing: -0.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(37, 44, 50, 0.7) 0%,
+    rgba(55, 65, 74, 0.7) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero-cta {
+  background: linear-gradient(180deg, #444444 0%, #292929 100%);
+  box-shadow:
+    0 4px 4px rgba(0, 0, 0, 0.25),
+    0 1px 2px rgba(0, 0, 0, 0.31),
+    inset 0 2px 1px rgba(255, 255, 255, 0.51),
+    inset 1px 1px 0.25px rgba(255, 255, 255, 0.3);
+}
+
+@media (min-width: 768px) {
+  .hero-headline {
+    font-size: 70px;
+    line-height: 64px;
+  }
+
+  .hero-subheadline {
+    font-size: 20px;
+  }
+}

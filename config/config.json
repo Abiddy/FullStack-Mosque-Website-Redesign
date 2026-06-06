@@ -2,11 +2,11 @@
   "site": {
     "title": "IIT",
     "base_url": "/",
-    "favicon": "images/frame1.png",
-    "logo": "images/frame1.png",
-    "logo_width": "120",
-    "logo_height": "48",
-    "logo_text": "Islamic Center of Torrance",
+    "favicon": "/images/iit-logo.png",
+    "logo": "/images/iit-logo.png",
+    "logo_width": "36",
+    "logo_height": "36",
+    "logo_text": "Islamic Institute of Torrance",
     "salah_type": 2
   },
 
@@ -26,17 +26,17 @@
     "contact_form_action": "",
     "tag_manager_id": "GTM-5HZ8TCF",
     "ga_tag": "G-RTW5S6YXJS",
-    "footer_content": "Lorem ipsum dolor sit amet, consectetur elit. Consjat tristique eget amet, tempus eu at cttur.",
-    "copyright": "© 2024, Islamic Center of Torrance, 18103 Prairie Ave, Torrance, CA 90504 | (310) 956-8006 | Made with love in Gardena"
+    "footer_content": "Islamic Institute of Torrance — community, prayer, and education in Torrance, CA.",
+    "copyright": "© 2024, Islamic Institute of Torrance, 18103 Prairie Ave, Torrance, CA 90504 | (310) 956-8006 | Made with love in Gardena"
   },
 
   "metadata": {
-    "meta_author": "",
-    "meta_image": "images/frame1.png",
-    "meta_description": ""
+    "meta_author": "Islamic Institute of Torrance",
+    "meta_image": "/images/iit-logo.png",
+    "meta_description": "Islamic Institute of Torrance — prayer times, announcements, community activities, and more."
   },
 
-  "announcement":{
+  "announcement": {
     "title": "Ramadan 2023 / 1444 AH",
     "content": "The first fasting day of Ramadan will be on Thursday 23rd March. The first Taraweeh will be after the Isha Jamat (8PM) on Wednesday 22nd March.",
     "enddate": "30-03-2023"

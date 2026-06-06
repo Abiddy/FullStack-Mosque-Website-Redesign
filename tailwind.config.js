@@ -1,5 +1,19 @@
 const theme = require("./config/theme.json");
 const { nextui } = require("@nextui-org/react");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
+function addVariablesForColors({ addBase, theme }) {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
 
 let font_base = Number(theme.fonts.font_size.base.replace("px", ""));
 let font_scale = Number(theme.fonts.font_size.scale);
@@ -29,6 +43,7 @@ module.exports = {
     content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./layouts/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
     "./content/**/*.{md,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
@@ -46,10 +61,13 @@ module.exports = {
   	},
   	extend: {
   		fontFamily: {
-  			sans: ["var(--font-outfit)", fontPrimary, "Montserrat", "system-ui", "sans-serif"],
-  			serif: [fontSecondary, "Montserrat", "Georgia", "serif"],
-  			body: ["var(--font-outfit)", "Open Sans", "system-ui", "sans-serif"],
-  			primary: ["var(--font-outfit)", fontPrimary, fontPrimaryType].filter(Boolean),
+  			sans: ["var(--font-instrument-sans)", "Instrument Sans", "system-ui", "sans-serif"],
+  			serif: ["var(--font-instrument-serif)", "Instrument Serif", "Georgia", "serif"],
+  			body: ["var(--font-manrope)", "Manrope", "system-ui", "sans-serif"],
+  			"instrument-serif": ["var(--font-instrument-serif)", "Instrument Serif", "Georgia", "serif"],
+  			manrope: ["var(--font-manrope)", "Manrope", "system-ui", "sans-serif"],
+  			"instrument-sans": ["var(--font-instrument-sans)", "Instrument Sans", "system-ui", "sans-serif"],
+  			primary: ["var(--font-instrument-sans)", fontPrimary, fontPrimaryType].filter(Boolean),
   			secondary: [fontSecondary, fontSecondaryType].filter(Boolean),
   			mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
   		},
@@ -116,7 +134,20 @@ module.exports = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+  		animation: {
+  			aurora: "aurora 60s linear infinite",
+  		},
+  		keyframes: {
+  			aurora: {
+  				from: {
+  					backgroundPosition: "50% 50%, 50% 50%",
+  				},
+  				to: {
+  					backgroundPosition: "350% 50%, 350% 50%",
+  				},
+  			},
+  		},
   	}
   },
   plugins: [
@@ -124,7 +155,8 @@ module.exports = {
     require("@tailwindcss/forms"),
     require("tailwind-bootstrap-grid")({ generateContainer: false }),
     nextui(),
-      require("tailwindcss-animate")
+    require("tailwindcss-animate"),
+    addVariablesForColors,
 ],
   // important: true,
 };

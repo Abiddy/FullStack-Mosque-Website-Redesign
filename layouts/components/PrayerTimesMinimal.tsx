@@ -29,7 +29,8 @@ export default function PrayerTimesMinimal() {
         if (!r.ok) throw new Error(json?.error || "Request failed");
         if (!cancelled) setPayload(json);
       } catch (e) {
-        if (!cancelled) setError(e instanceof Error ? e.message : "Something went wrong");
+        if (!cancelled)
+          setError(e instanceof Error ? e.message : "Something went wrong");
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -44,62 +45,58 @@ export default function PrayerTimesMinimal() {
   const jumuah = payload?.jumuah;
 
   return (
-    <div className="w-full max-w-[380px] mx-auto bg-transparent px-6 pt-3 pb-6 sm:pt-4 md:px-8 md:py-8 text-center">
-      <p className="font-serif text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-stone-600 mb-5 sm:mb-6 md:mb-8">
+    <div className="mx-auto w-full max-w-[480px] bg-white px-5 pt-4 pb-8 text-center font-sans text-black sm:px-7 sm:pt-5 sm:pb-9 md:px-8 md:py-8">
+      <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.14em] text-[#646464] sm:mb-7 md:text-xs">
         Prayer times
       </p>
 
       {loading && (
-        <p className="font-serif text-sm text-stone-500 tracking-wide">Loading…</p>
+        <p className="text-base font-medium text-black">Loading…</p>
       )}
       {error && !loading && (
-        <p className="font-serif text-sm text-stone-700 tracking-wide">{error}</p>
+        <p className="text-base font-medium text-black">{error}</p>
       )}
 
       {!loading && !error && prayers && prayers.length > 0 && (
         <>
           {readable && (
-            <p className="font-serif text-sm md:text-[15px] tracking-wide text-[var(--ink)] mb-6 sm:mb-8">
+            <p className="mb-7 text-base font-semibold text-black sm:mb-9 md:text-lg">
               {readable}
             </p>
           )}
 
-          <div className="w-full max-w-[340px] mx-auto text-left">
-            <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 sm:gap-x-5 items-baseline border-b border-stone-300/60 pb-2 mb-3">
-              <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-[0.25em] text-stone-500" />
-              <div className="grid grid-cols-2 gap-x-8 sm:gap-x-10 min-w-[9.5rem] sm:min-w-[10.5rem]">
-                <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-stone-500 text-right">
-                  Starts
-                </span>
-                <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-stone-500 text-right">
-                  Iqamah
-                </span>
-              </div>
+          <div className="mx-auto w-full max-w-[400px] md:max-w-[440px]">
+            <div className="mb-4 grid grid-cols-3 gap-x-8 border-b border-[#e8e8e8] pb-3 sm:gap-x-10">
+              <span />
+              <span className="text-center text-[10px] font-medium uppercase tracking-[0.12em] text-[#646464] md:text-[11px]">
+                Starts
+              </span>
+              <span className="text-center text-[10px] font-medium uppercase tracking-[0.12em] text-[#646464] md:text-[11px]">
+                Iqamah
+              </span>
             </div>
 
-            <div className="space-y-3 sm:space-y-3.5">
+            <div className="space-y-4 sm:space-y-[1.125rem]">
               {prayers.map((p) => {
                 const iq = iqamaCell(p);
                 return (
                   <div
                     key={p.name}
-                    className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 sm:gap-x-5 items-baseline"
+                    className="grid grid-cols-3 items-baseline gap-x-8 sm:gap-x-10"
                   >
-                    <span className="font-serif text-[11px] md:text-xs uppercase tracking-[0.18em] text-stone-700">
+                    <span className="text-left text-xs font-medium uppercase tracking-wide text-[#646464] md:text-sm">
                       {p.name}
                     </span>
-                    <div className="grid grid-cols-2 gap-x-8 sm:gap-x-10 min-w-[9.5rem] sm:min-w-[10.5rem]">
-                      <span className="font-serif text-sm md:text-[15px] tabular-nums tracking-wide text-[var(--ink)] text-right">
-                        {p.starts}
-                      </span>
-                      <span
-                        className={`font-serif text-sm md:text-[15px] tabular-nums tracking-wide text-right min-h-[1.25em] ${
-                          p.iqama ? "text-[var(--ink)] font-medium" : "text-stone-400"
-                        }`}
-                      >
-                        {iq || "\u00a0"}
-                      </span>
-                    </div>
+                    <span className="text-center text-base font-semibold tabular-nums text-black md:text-lg">
+                      {p.starts}
+                    </span>
+                    <span
+                      className={`min-h-[1.25em] text-center text-base font-semibold tabular-nums text-black md:text-lg ${
+                        p.iqama ? "" : "opacity-40"
+                      }`}
+                    >
+                      {iq || "\u00a0"}
+                    </span>
                   </div>
                 );
               })}
@@ -107,15 +104,15 @@ export default function PrayerTimesMinimal() {
           </div>
 
           {jumuah && jumuah.length > 0 && (
-            <div className="mt-10 sm:mt-12 pt-6 border-t border-stone-300/40">
-              <p className="font-serif text-[10px] md:text-[11px] uppercase tracking-[0.35em] text-stone-600 mb-5">
-                Jumu‘ah
+            <div className="mt-11 border-t border-[#e8e8e8] pt-7 sm:mt-14 sm:pt-8">
+              <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.14em] text-[#646464] md:text-xs">
+                Jumu&apos;ah
               </p>
-              <div className="space-y-3 font-serif text-sm md:text-[15px] tracking-wide text-[var(--ink)]">
+              <div className="space-y-3.5 text-base font-medium text-black md:text-lg">
                 {jumuah.map((j) => (
                   <p key={j.label}>
-                    <span className="text-stone-600">{j.label}</span>
-                    <span className="mx-2 text-stone-400">·</span>
+                    <span>{j.label}</span>
+                    <span className="mx-2 opacity-40">·</span>
                     {j.time}
                   </p>
                 ))}

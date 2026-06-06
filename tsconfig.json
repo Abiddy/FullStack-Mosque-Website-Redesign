@@ -23,9 +23,11 @@
       "@config/*": ["config/*"],
       "@json/*": ["json/*"],
       "@hooks/*": ["hooks/*"],
-      "@lib/*": ["lib/*"]
+      "@lib/*": ["lib/*"],
+      "@/components/*": ["components/*"],
+      "@/lib/utils": ["layouts/lib/utils"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "layouts/components/AyahGenerator.jsx", "layouts/components/Embla.tsx", "layouts/components/Banner.jsx", "layouts/components/Announcements.jsx", "layouts/components/FeatureCard.jsx", "layouts/components/SalahTimer.jsx"],
+  "include": ["next-env.d.ts", "components/**/*.ts", "components/**/*.tsx", "**/*.ts", "**/*.tsx", "layouts/components/AyahGenerator.jsx", "layouts/components/Embla.tsx", "layouts/components/Banner.jsx", "layouts/components/Announcements.jsx", "layouts/components/FeatureCard.jsx", "layouts/components/SalahTimer.jsx"],
   "exclude": ["node_modules"]
 }

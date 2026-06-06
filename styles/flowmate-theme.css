@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "PPMondwest";
+  src: url("https://www.generalintelligencecompany.com/_next/static/media/17330fd087386262-s.p.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --fm-bg: #fefffc;
+  --fm-text: #2c2c2c;
+  --fm-text-secondary: #444141;
+  --fm-text-tertiary: #646464;
+  --fm-text-muted: #b4b8b4;
+  --fm-border: #dde3dd;
+  --fm-border-soft: #dee2de;
+  --fm-border-light: #e8e8e8;
+  --fm-hover: #eef1ed;
+  --fm-sidebar: 240px;
+}
+
+.font-pp {
+  font-family: "PPMondwest", Georgia, "Times New Roman", serif;
+  font-kerning: none;
+  letter-spacing: -0.04em;
+}
+
+.font-pp.font-semibold,
+.font-pp.font-medium {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.glass-card {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background-image: linear-gradient(
+    in oklab,
+    rgba(255, 255, 255, 0.35) 0px,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--fm-bg) !important;
+  color: var(--fm-text) !important;
+}
+
+.fm-section {
+  border-top: 1px solid var(--fm-border-light);
+}
+
+.fm-card {
+  border: 2px solid var(--fm-border-soft);
+  transition: border-color 0.2s ease;
+}
+
+.fm-card:hover {
+  border-color: #b8beb8;
+}

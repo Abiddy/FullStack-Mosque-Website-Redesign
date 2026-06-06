@@ -1,61 +1,24 @@
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 import Link from "next/link";
+import IITLogo from "./IITLogo";
+import NavActions from "./NavActions";
 
 const Navbar = () => {
-  const [isScrolling, setIsScrolling] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolling(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const menuItems = [
-    { title: "Home", href: "#home" },
-    { title: "Announcements", href: "#announcements" },
-    { title: "Activities", href: "#activities" },
-    { title: "About", href: "#about" },
-    { title: "Donate", href: "#donate" },
-  ];
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      <div
-        className={`bg-transparent transition-[box-shadow,background-color] duration-300 ${
-          isScrolling ? "bg-[color-mix(in_srgb,var(--sand-hero)_88%,white)]/85 backdrop-blur-md shadow-sm shadow-stone-900/5" : ""
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 md:px-10 py-3 md:py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold text-[var(--ink)] whitespace-normal md:whitespace-nowrap max-w-[150px] md:max-w-none">
-              Islamic Institute of Torrance
-            </span>
-          </Link>
+    <nav className="absolute left-1/2 top-5 z-30 w-full max-w-[1110px] -translate-x-1/2 px-4 sm:px-6">
+      <div className="flex min-w-0 items-center justify-between gap-2 sm:gap-4">
+        <Link
+          href="/"
+          className="flex min-w-0 items-center gap-1.5 rounded-full border border-[#e8e8e8] bg-white/90 py-1 pr-2 pl-1 shadow-sm backdrop-blur-sm transition-opacity hover:opacity-90 sm:flex-1 sm:gap-2 sm:px-2"
+        >
+          <IITLogo size={28} className="sm:hidden" />
+          <IITLogo size={36} className="hidden sm:block" />
+          <span className="font-pp text-sm leading-tight text-[#2c2c2c] sm:min-w-0 sm:truncate sm:text-[22px] lg:text-[26px]">
+            <span className="sm:hidden">IIT</span>
+            <span className="hidden sm:inline">Islamic Institute of Torrance</span>
+          </span>
+        </Link>
 
-          <div className="hidden lg:flex items-center space-x-8 xl:space-x-12">
-            {menuItems.map((item) => (
-              <Link
-                key={item.title}
-                href={item.href}
-                className="uppercase tracking-[0.15em] text-[10px] md:text-[11px] font-bold text-stone-600 transition-colors hover:text-[var(--terracotta)]"
-              >
-                {item.title}
-              </Link>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-4 md:gap-10">
-            <Link
-              href="#donate"
-              className="flex items-center gap-2 px-4 md:px-6 py-2 border border-[var(--terracotta)] text-[var(--terracotta)] text-[9px] md:text-[11px] font-bold uppercase tracking-widest hover:bg-[var(--terracotta)] hover:text-white transition-all duration-300"
-            >
-              Support Us
-            </Link>
-          </div>
-        </div>
+        <NavActions />
       </div>
     </nav>
   );

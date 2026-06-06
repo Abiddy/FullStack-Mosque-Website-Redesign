@@ -1,36 +1,56 @@
 import config from "@config/config.json";
-import theme from "@config/theme.json";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "styles/style.scss";
 import "styles/globals.css";
-import '@fortawesome/fontawesome-svg-core/styles.css'
-import { config as fConfig } from '@fortawesome/fontawesome-svg-core'
+import "styles/landing.css";
+import "styles/flowmate-theme.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config as fConfig } from "@fortawesome/fontawesome-svg-core";
 import { GoogleAnalytics } from "nextjs-google-analytics";
-import { Outfit } from 'next/font/google';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/router';
-import Script from 'next/script';
-import Lenis from '@studio-freight/lenis';
+import {
+  Instrument_Sans,
+  Instrument_Serif,
+  Manrope,
+} from "next/font/google";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
+import Script from "next/script";
+import Lenis from "@studio-freight/lenis";
 
-const outfit = Outfit({ 
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-outfit',
-})
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-instrument-serif",
+});
 
-fConfig.autoAddCss = false
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-manrope",
+});
+
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-instrument-sans",
+});
+
+fConfig.autoAddCss = false;
 
 const App = ({ Component, pageProps }: any) => {
   const router = useRouter();
 
   useEffect(() => {
-    // Initialize Lenis smooth scroll
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
+      orientation: "vertical",
+      gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1,
       touchMultiplier: 2,
@@ -44,25 +64,24 @@ const App = ({ Component, pageProps }: any) => {
 
     requestAnimationFrame(raf);
 
-    // Clean up on unmount
     return () => {
       lenis.destroy();
     };
   }, []);
 
   return (
-    <div className={`${outfit.variable} ${outfit.className} antialiased`}>
+    <div
+      className={`${instrumentSerif.variable} ${manrope.variable} ${instrumentSans.variable} antialiased`}
+    >
       <Head>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
       </Head>
-      
-      {/* Google Analytics */}
+
       <GoogleAnalytics trackPageViews gaMeasurementId={config.params.ga_tag} />
-      
-      {/* Google Tag Manager - Loaded with low priority */}
+
       {config.params.tag_manager_id && (
         <Script
           id="gtm-script"
@@ -78,7 +97,7 @@ const App = ({ Component, pageProps }: any) => {
           }}
         />
       )}
-      
+
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={router.pathname}

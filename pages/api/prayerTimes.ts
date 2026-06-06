@@ -30,6 +30,30 @@ function cleanTime(s: string): string {
   return s.replace(/\s+/g, " ").trim();
 }
 
+function addMinutesToTime(time: string, minutes: number): string {
+  const match = time.trim().match(/^(\d{1,2}):(\d{2})(?:\s*(AM|PM))?$/i);
+  if (!match) return time;
+
+  let hours = parseInt(match[1], 10);
+  const mins = parseInt(match[2], 10);
+  const meridiem = match[3]?.toUpperCase();
+
+  if (meridiem === "PM" && hours !== 12) hours += 12;
+  if (meridiem === "AM" && hours === 12) hours = 0;
+
+  const total = hours * 60 + mins + minutes;
+  const newHours24 = Math.floor(total / 60) % 24;
+  const newMins = total % 60;
+
+  if (meridiem) {
+    const h12 = newHours24 % 12 || 12;
+    const suffix = newHours24 >= 12 ? "PM" : "AM";
+    return `${h12}:${String(newMins).padStart(2, "0")} ${suffix}`;
+  }
+
+  return `${newHours24}:${String(newMins).padStart(2, "0")}`;
+}
+
 /** Rows from PRAYER TIMINGS: [dom, hijriDay, weekday, fajr…isha]. */
 function parseAdhanRows(html: string): string[][] {
   const start = html.indexOf("PRAYER TIMINGS");
@@ -153,7 +177,7 @@ export default async function handler(req: any, res: any) {
       Sunrise: null,
       Dhuhr: iq ? cleanTime(iq.dhuhr) : null,
       Asr: iq ? cleanTime(iq.asr) : null,
-      Maghrib: iq ? cleanTime(iq.maghrib) : null,
+      Maghrib: addMinutesToTime(starts.Maghrib, 5),
       Isha: iq ? cleanTime(iq.isha) : null,
     };
 
