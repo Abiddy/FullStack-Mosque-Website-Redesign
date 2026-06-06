@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import IITLogo from "./IITLogo";
 import type { Question } from "@lib/questions/types";
 
@@ -120,8 +119,8 @@ const SheikhDashboard = ({ initialQuestions }: Props) => {
     });
 
   return (
-    <AuroraBackground>
-      <header className="border-b border-white/40 bg-white/70 backdrop-blur-md">
+    <div className="min-h-screen bg-[#fefffc] text-[#2c2c2c]">
+      <header className="border-b border-[#e8e8e8] bg-white">
         <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-5">
           <div className="flex items-center gap-3">
             <IITLogo size={40} />
@@ -175,7 +174,7 @@ const SheikhDashboard = ({ initialQuestions }: Props) => {
             {filtered.map((q) => (
               <li
                 key={q.id}
-                className="fm-card rounded-2xl border-white/50 bg-white/85 p-5 shadow-sm backdrop-blur-sm md:p-6"
+                className="fm-card rounded-2xl border border-[#e8e8e8] bg-white p-5 shadow-sm md:p-6"
               >
                 <div className="mb-3 flex flex-wrap items-center gap-2">
                   <span
@@ -285,7 +284,7 @@ const SheikhDashboard = ({ initialQuestions }: Props) => {
           </ul>
         )}
       </main>
-    </AuroraBackground>
+    </div>
   );
 };
 

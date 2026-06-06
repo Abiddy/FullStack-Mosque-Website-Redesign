@@ -3,7 +3,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import IITLogo from "@layouts/components/IITLogo";
 import { getSheikhSession } from "@lib/sheikh/session";
 
@@ -49,14 +48,14 @@ const SheikhLogin = () => {
         <title>Sheikh — IIT</title>
         <meta name="robots" content="noindex,nofollow" />
       </Head>
-      <AuroraBackground>
-        <div className="flex min-h-screen flex-1 items-center justify-center px-6">
+      <div className="min-h-screen bg-[#fefffc]">
+        <div className="flex min-h-screen items-center justify-center px-6">
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeInOut" }}
-            className="fm-card w-full max-w-sm rounded-2xl border border-white/50 bg-white/85 p-8 shadow-lg backdrop-blur-md"
+            className="fm-card w-full max-w-sm rounded-2xl border border-[#e8e8e8] bg-white p-8 shadow-lg"
           >
             <div className="flex justify-center">
               <IITLogo size={56} />
@@ -94,7 +93,7 @@ const SheikhLogin = () => {
           </button>
           </motion.form>
         </div>
-      </AuroraBackground>
+      </div>
     </>
   );
 };
