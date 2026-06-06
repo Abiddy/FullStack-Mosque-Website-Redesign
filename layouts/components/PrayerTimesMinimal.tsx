@@ -22,19 +22,36 @@ export default function PrayerTimesMinimal() {
 
   useEffect(() => {
     let cancelled = false;
-    (async () => {
+
+    const loadPrayerTimes = async (attempt = 1): Promise<void> => {
       try {
-        const r = await fetch("/api/prayerTimes");
+        const r = await fetch("/api/prayerTimes", { cache: "no-store" });
         const json = await r.json();
-        if (!r.ok) throw new Error(json?.error || "Request failed");
-        if (!cancelled) setPayload(json);
+
+        if (!r.ok) {
+          if (r.status >= 500 && attempt < 3) {
+            await new Promise((resolve) => setTimeout(resolve, 600 * attempt));
+            if (!cancelled) return loadPrayerTimes(attempt + 1);
+            return;
+          }
+          throw new Error(json?.error || "Request failed");
+        }
+
+        if (!cancelled) {
+          setPayload(json);
+          setError(null);
+        }
       } catch (e) {
-        if (!cancelled)
+        if (!cancelled) {
           setError(e instanceof Error ? e.message : "Something went wrong");
+        }
       } finally {
         if (!cancelled) setLoading(false);
       }
-    })();
+    };
+
+    loadPrayerTimes();
+
     return () => {
       cancelled = true;
     };
